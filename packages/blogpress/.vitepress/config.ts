@@ -97,7 +97,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
   lang: 'zh-cn',
   title: 'Desain',
-  base: '/personal-blog/',
+  base: '/',
   description:
     'Desain的个人博客，记录学习笔记，前端相关知识，高频面试题，个人面经等',
   head: [
