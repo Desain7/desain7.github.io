@@ -16,7 +16,7 @@ compile 编译分为 `parse`,`optimize`,`generate` 三个阶段，最终得到` 
 示例
 ```html
 <div :class="c" class="demo" v-if="isShow">
-    <span v-for="item in sz">{{item}}</span>
+    <span v-for="item in sz">{{item}}123</span>
 </div>
 ```
 
