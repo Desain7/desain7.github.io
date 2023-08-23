@@ -150,10 +150,10 @@ export default defineConfig({
       text: '去 GitHub 上编辑内容'
     },
     nav: [
-      {
-        text: '关于我',
-        link: '/aboutme'
-      },
+      // {
+      //   text: '关于我',
+      //   link: '/aboutme'
+      // },
       {
         text: '备战春秋',
         items: [
@@ -186,45 +186,24 @@ export default defineConfig({
         ]
       },
       {
-        text: '大前端',
+        text: '前端',
         items: [
-          { text: 'javascript', link: '/bigWeb/js/' },
-          { text: 'vue', link: '/bigWeb/vue/' },
           { text: 'html', link: '/bigWeb/html/' },
           { text: 'css', link: '/bigWeb/css/' },
-          { text: '🌏浏览器专题', link: '/bigWeb/browser/' },
-          { text: 'Web性能优化', link: '/bigWeb/performance/' },
-          { text: 'regexp', link: '/bigWeb/regexp/' },
-          { text: 'node', link: '/bigWeb/node/' }
+          { text: 'javascript', link: '/bigWeb/js/' },
+          { text: 'vue', link: '/bigWeb/vue/' }
         ]
       },
       {
         text: '面试',
-        items: [
-          { text: '心得总结', link: '/offer/experience/' },
-          { text: '校招考点汇总', link: '/offer/campus/' },
-          { text: '面经汇总', link: '/offer/sum-interview/' },
-          { text: '复习自查', link: '/offer/review/' },
-          { text: '问解', link: '/interview/problem/' },
-          { text: 'javascript', link: '/interview/js/' },
-          { text: 'css', link: '/interview/css/' },
-          { text: '手撕代码', link: '/interview/code/' },
-          { text: '性能优化', link: '/interview/performance/' },
-          // { text: "网络", link: "/interview/internet/" },
-          // { text: '操作系统', link: '/interview/os/' },
-          // { text: '设计模式', link: '/interview/design/' },
-          { text: '综合问题', link: '/interview/other/' },
-          { text: '面经汇总', link: '/offer/sum-interview/' },
-          { text: '小程序', link: '/interview/mini/' }
-          // { text: '面经', link: '/interview/experience/' }
-        ]
+        items: [{ text: '面经', link: '/interview/exp/' }]
       },
       {
         text: '手撕代码',
         items: [
-          { text: '数据结构与算法', link: '/coding/algorithm/' },
+          { text: 'css', link: '/coding/css/' },
           { text: 'javascript', link: '/coding/js/' },
-          { text: 'css', link: '/coding/css/' }
+          { text: '算法与数据结构', link: '/coding/algorithm/' }
         ]
       }
     ],
