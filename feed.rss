@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Wed, 23 Aug 2023 10:46:35 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Aug 2023 10:54:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -16,8 +16,8 @@
         <copyright>Copyright (c) 2022-present, Desain</copyright>
         <item>
             <title><![CDATA[新年快乐，虎虎生威]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/newyear/2022.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/newyear/2022.html</guid>
+            <link>https://desain7.top/_configDoc/newyear/2022.html</link>
+            <guid>https://desain7.top/_configDoc/newyear/2022.html</guid>
             <pubDate>Sun, 30 Jan 2022 16:00:00 GMT</pubDate>
             <description><![CDATA[给大家送上`红包封面`和`红包`
 新的一年祝大家新年快乐，虎年大吉，虎虎生威，如虎添翼，恭喜发财，财源滚滚
@@ -37,8 +37,8 @@
         </item>
         <item>
             <title><![CDATA[关于自己]]></title>
-            <link>https://desain7.top/personal-blog/aboutme.html</link>
-            <guid>https://desain7.top/personal-blog/aboutme.html</guid>
+            <link>https://desain7.top/aboutme.html</link>
+            <guid>https://desain7.top/aboutme.html</guid>
             <pubDate>Fri, 10 Dec 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[99年出生，标准的理工男一枚,毕业于(西南石油大学),热爱开源与知识分享
 目前就职于 🛵美团🛵（Base 北京）
@@ -64,8 +64,8 @@
         </item>
         <item>
             <title><![CDATA[前端校招考点汇总]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/top/campusProblem.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/top/campusProblem.html</guid>
+            <link>https://desain7.top/_configDoc/top/campusProblem.html</link>
+            <guid>https://desain7.top/_configDoc/top/campusProblem.html</guid>
             <pubDate>Fri, 10 Dec 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[ 措辞
 * 了解：听说过这个概念，知道是干什么的
@@ -84,8 +84,8 @@
         </item>
         <item>
             <title><![CDATA[内容预告-最近准备整理的内容]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/top/notice.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/top/notice.html</guid>
+            <link>https://desain7.top/_configDoc/top/notice.html</link>
+            <guid>https://desain7.top/_configDoc/top/notice.html</guid>
             <pubDate>Sun, 03 Oct 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[由于砖太烫手，这部分内容鸽了有大办年了，争取21Q4完善其中一部分内容
 你也可以在评论区留下所遇到的相关面试题哟
@@ -188,8 +188,8 @@
         </item>
         <item>
             <title><![CDATA[我收藏的资源]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/top/address.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/top/address.html</guid>
+            <link>https://desain7.top/_configDoc/top/address.html</link>
+            <guid>https://desain7.top/_configDoc/top/address.html</guid>
             <pubDate>Fri, 30 Jul 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[
  电子书相关
@@ -297,8 +297,8 @@
         </item>
         <item>
             <title><![CDATA[美团招聘]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/show/bole.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/show/bole.html</guid>
+            <link>https://desain7.top/_configDoc/show/bole.html</link>
+            <guid>https://desain7.top/_configDoc/show/bole.html</guid>
             <pubDate>Fri, 16 Jul 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[全年招聘前端&客户端
 进度可查，可随时骚扰，欢迎同学们投递，可加入QQ交流群：1047199470
@@ -326,8 +326,8 @@ TODO
         </item>
         <item>
             <title><![CDATA[分享小册《Chrome-DevTools的使用技巧》中的精华]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/chrome-devtools-study.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/chrome-devtools-study.html</guid>
+            <link>https://desain7.top/bigWeb/browser/chrome-devtools-study.html</link>
+            <guid>https://desain7.top/bigWeb/browser/chrome-devtools-study.html</guid>
             <pubDate>Sun, 16 May 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[ 前言
 花了大概半天时间 温习了一遍（主要是忘了O(∩_∩)O哈哈~）掘金小册：你不知道的 Chrome 调试技巧-
@@ -419,8 +419,8 @@ TODO
         </item>
         <item>
             <title><![CDATA[浏览器-事件循环机制]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/eventloop.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/eventloop.html</guid>
+            <link>https://desain7.top/bigWeb/browser/eventloop.html</link>
+            <guid>https://desain7.top/bigWeb/browser/eventloop.html</guid>
             <pubDate>Mon, 01 Feb 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[ 前言
 先简单聊聊JavaScript与此主题有关的其它内容，加深读者对内容的吸收与理解
@@ -784,8 +784,8 @@ TODO
         </item>
         <item>
             <title><![CDATA[浏览器-跨域与跨站]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/cors.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/cors.html</guid>
+            <link>https://desain7.top/bigWeb/browser/cors.html</link>
+            <guid>https://desain7.top/bigWeb/browser/cors.html</guid>
             <pubDate>Fri, 18 Dec 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 同源策略
 浏览器有同源策略,如果两个URL的协议,域名,端口完全一致才是同源
@@ -1461,8 +1461,8 @@ TODO
         </item>
         <item>
             <title><![CDATA[我眼中的前端🧐]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/show/whyfe.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/show/whyfe.html</guid>
+            <link>https://desain7.top/_configDoc/show/whyfe.html</link>
+            <guid>https://desain7.top/_configDoc/show/whyfe.html</guid>
             <pubDate>Sat, 12 Dec 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[
  写本文目的
@@ -1974,8 +1974,8 @@ tips:本文中提到的FE（Front-End）均指前]]></description>
         </item>
         <item>
             <title><![CDATA[🤔为什么需要手动刷新本站点]]></title>
-            <link>https://desain7.top/personal-blog/_configDoc/show/sw.html</link>
-            <guid>https://desain7.top/personal-blog/_configDoc/show/sw.html</guid>
+            <link>https://desain7.top/_configDoc/show/sw.html</link>
+            <guid>https://desain7.top/_configDoc/show/sw.html</guid>
             <pubDate>Fri, 27 Nov 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[当你访问站点时，如发现页面右下角有这个小窗时，请记得点一下
 <div
@@ -2010,8 +2010,8 @@ tips:本文中提到的FE（Front-End）均指前]]></description>
         </item>
         <item>
             <title><![CDATA[浏览器专题系列文章]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/</guid>
+            <link>https://desain7.top/bigWeb/browser/</link>
+            <guid>https://desain7.top/bigWeb/browser/</guid>
             <pubDate>Thu, 19 Nov 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[主要针对面试中所遇到的相关知识做一些梳理与知识延伸
 其次分享一些与面试无关的知识，提升自己
@@ -2041,8 +2041,8 @@ tips:本文中提到的FE（Front-End）均指前]]></description>
         </item>
         <item>
             <title><![CDATA[浏览器-阻塞]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/block.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/block.html</guid>
+            <link>https://desain7.top/bigWeb/browser/block.html</link>
+            <guid>https://desain7.top/bigWeb/browser/block.html</guid>
             <pubDate>Mon, 26 Oct 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ CSS
  1. 阻塞渲染
@@ -2299,8 +2299,8 @@ CSS 被视为阻塞渲染的资源，这意味着浏览器将不会渲染任何�
         </item>
         <item>
             <title><![CDATA[浏览器-常见面试题]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/problem.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/problem.html</guid>
+            <link>https://desain7.top/bigWeb/browser/problem.html</link>
+            <guid>https://desain7.top/bigWeb/browser/problem.html</guid>
             <pubDate>Mon, 26 Oct 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 目录
 [[toc]]
@@ -2419,8 +2419,8 @@ DOM ]]></description>
         </item>
         <item>
             <title><![CDATA[浏览器-安全问题]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/safe.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/safe.html</guid>
+            <link>https://desain7.top/bigWeb/browser/safe.html</link>
+            <guid>https://desain7.top/bigWeb/browser/safe.html</guid>
             <pubDate>Mon, 26 Oct 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[在现代网络中，安全相关的问题是非常繁杂的，种类颇多
 这里只介绍Web开发中经常碰到的一些安全问题：
@@ -2738,8 +2738,8 @@ DOM ]]></description>
         </item>
         <item>
             <title><![CDATA[浏览器-内核]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/core.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/core.html</guid>
+            <link>https://desain7.top/bigWeb/browser/core.html</link>
+            <guid>https://desain7.top/bigWeb/browser/core.html</guid>
             <pubDate>Sun, 25 Oct 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 简介
 浏览器最重要或者说核心的部分。
@@ -2852,8 +2852,8 @@ DOM ]]></description>
         </item>
         <item>
             <title><![CDATA[浏览器-渲染原理]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/render.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/render.html</guid>
+            <link>https://desain7.top/bigWeb/browser/render.html</link>
+            <guid>https://desain7.top/bigWeb/browser/render.html</guid>
             <pubDate>Sun, 25 Oct 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[篇幅较长，需赖心阅读
 示例代码
@@ -2976,8 +2976,8 @@ DOM ]]></description>
         </item>
         <item>
             <title><![CDATA[路由原理]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/routing.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/routing.html</guid>
+            <link>https://desain7.top/bigWeb/vue/routing.html</link>
+            <guid>https://desain7.top/bigWeb/vue/routing.html</guid>
             <pubDate>Sat, 02 May 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[* hash模式
 * history模式
@@ -3009,8 +3009,8 @@ DOM ]]></description>
         </item>
         <item>
             <title><![CDATA[数据状态更新时的差异diff及patch机制]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/diff.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/diff.html</guid>
+            <link>https://desain7.top/bigWeb/vue/diff.html</link>
+            <guid>https://desain7.top/bigWeb/vue/diff.html</guid>
             <pubDate>Mon, 20 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ diff
 diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索遍历的方式，所以时间复杂度只有 O(n)]]></description>
@@ -3021,8 +3021,8 @@ diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索
         </item>
         <item>
             <title><![CDATA[浏览器-缓存机制]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/cache.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/cache.html</guid>
+            <link>https://desain7.top/bigWeb/browser/cache.html</link>
+            <guid>https://desain7.top/bigWeb/browser/cache.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 缓存定义
 用于存储数据的硬件或软件的组成部分，以使得后续更快访问相应的数据
@@ -3388,8 +3388,8 @@ diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索
         </item>
         <item>
             <title><![CDATA[浏览器-本地存储]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/browser/storage.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/browser/storage.html</guid>
+            <link>https://desain7.top/bigWeb/browser/storage.html</link>
+            <guid>https://desain7.top/bigWeb/browser/storage.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[在目前的现代浏览器中主要有以下几种存储方案
 * cookie
@@ -3659,8 +3659,8 @@ diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索
         </item>
         <item>
             <title><![CDATA[组件通信]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/communicate.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/communicate.html</guid>
+            <link>https://desain7.top/bigWeb/vue/communicate.html</link>
+            <guid>https://desain7.top/bigWeb/vue/communicate.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 父子通信
  props与emit
@@ -3848,8 +3848,8 @@ diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索
         </item>
         <item>
             <title><![CDATA[编译template的过程]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/compile.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/compile.html</guid>
+            <link>https://desain7.top/bigWeb/vue/compile.html</link>
+            <guid>https://desain7.top/bigWeb/vue/compile.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ Compile
 compile 编译分为 `parse`,`optimize`,`generate` 三个阶段，最终得到` render function`
@@ -3955,8 +3955,8 @@ compile 编译分为 `parse`,`optimize`,`generate` 三个阶段，最终得到` 
         </item>
         <item>
             <title><![CDATA[computed与watch]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/computed.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/computed.html</guid>
+            <link>https://desain7.top/bigWeb/vue/computed.html</link>
+            <guid>https://desain7.top/bigWeb/vue/computed.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[* ``computed`` 是计算属性，依赖其他属性计算值，并且 computed 的值有缓存，只有当计算值变化才会返回内容。
 * ``watch`` 监听到值的变化就会执行回调，在回调中可以进行一]]></description>
@@ -4017,8 +4017,8 @@ compile 编译分为 `parse`,`optimize`,`generate` 三个阶段，最终得到` 
         </item>
         <item>
             <title><![CDATA[响应式系统的依赖收集追踪原理]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/dep.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/dep.html</guid>
+            <link>https://desain7.top/bigWeb/vue/dep.html</link>
+            <guid>https://desain7.top/bigWeb/vue/dep.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ 订阅者 Dep
 主要作用是用来存放 Watcher 观察者对象
@@ -4120,8 +4120,8 @@ class Dep{
         </item>
         <item>
             <title><![CDATA[extendAP]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/extend.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/extend.html</guid>
+            <link>https://desain7.top/bigWeb/vue/extend.html</link>
+            <guid>https://desain7.top/bigWeb/vue/extend.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[扩展组件生成一个构造器，通常会与 $mount 一起使用
  简单使用
@@ -4162,8 +4162,8 @@ class Dep{
         </item>
         <item>
             <title><![CDATA[生命周期钩子]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/hook.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/hook.html</guid>
+            <link>https://desain7.top/bigWeb/vue/hook.html</link>
+            <guid>https://desain7.top/bigWeb/vue/hook.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ beforeCreated
 * 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用
@@ -4269,8 +4269,8 @@ class Dep{
         </item>
         <item>
             <title><![CDATA[keep-alive]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/keep-alive.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/keep-alive.html</guid>
+            <link>https://desain7.top/bigWeb/vue/keep-alive.html</link>
+            <guid>https://desain7.top/bigWeb/vue/keep-alive.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[需要在组件切换的时候，保存一些组件的状态防止多次渲染，就可以使用 keep-alive 组件包裹需要保存的组件
 keep-alive 组件拥有两个独有的生命周期钩子函数:
@@ -4288,8 +4288,8 @@ keep-alive 组件拥有两个独有的生命周期钩子函数:
         </item>
         <item>
             <title><![CDATA[运行机制概述]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/mechanism.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/mechanism.html</guid>
+            <link>https://desain7.top/bigWeb/vue/mechanism.html</link>
+            <guid>https://desain7.top/bigWeb/vue/mechanism.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[<center
  初始化及挂载
@@ -4367,8 +4367,8 @@ keep-alive 组件拥有两个独有的生命周期钩子函数:
         </item>
         <item>
             <title><![CDATA[mixin与mixins]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/mixin.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/mixin.html</guid>
+            <link>https://desain7.top/bigWeb/vue/mixin.html</link>
+            <guid>https://desain7.top/bigWeb/vue/mixin.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ mixin
 mixin 用于全局混入，会影响到每个组件实例，通常插件都是这样做初始化的。
@@ -4418,8 +4418,8 @@ Vue.mixin({
         </item>
         <item>
             <title><![CDATA[响应式的基本原理]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/responsive.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/responsive.html</guid>
+            <link>https://desain7.top/bigWeb/vue/responsive.html</link>
+            <guid>https://desain7.top/bigWeb/vue/responsive.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式
  vue2.x版本
@@ -4866,8 +4866,8 @@ Vue.mixin({
         </item>
         <item>
             <title><![CDATA[v-show与v-if]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/showif.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/showif.html</guid>
+            <link>https://desain7.top/bigWeb/vue/showif.html</link>
+            <guid>https://desain7.top/bigWeb/vue/showif.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ v-show
 * ``v-show`` 只是在 display: none 和 display: block|inline-block|flex ... 之间切换。无论初始条件是什么都会被渲染出来
@@ -4896,8 +4896,8 @@ Vue.mixin({
         </item>
         <item>
             <title><![CDATA[实现VNode节点]]></title>
-            <link>https://desain7.top/personal-blog/bigWeb/vue/vnode.html</link>
-            <guid>https://desain7.top/personal-blog/bigWeb/vue/vnode.html</guid>
+            <link>https://desain7.top/bigWeb/vue/vnode.html</link>
+            <guid>https://desain7.top/bigWeb/vue/vnode.html</guid>
             <pubDate>Mon, 13 Apr 2020 16:00:00 GMT</pubDate>
             <description><![CDATA[ VNode?
 `render function` 会被转化成 `VNode` 节点
