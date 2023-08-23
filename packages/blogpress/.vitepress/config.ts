@@ -10,8 +10,8 @@ const RSS: Theme.RSSOptions = {
   id: baseUrl,
   link: baseUrl,
   language: 'zh-cn',
-  image: 'https://oss.desain7.top/pic94500053.jpg',
-  favicon: 'https://oss.desain7.top/pic94500053.jpg',
+  image: 'http://oss.desain7.top/pic94500053.jpg',
+  favicon: 'http://oss.desain7.top/pic94500053.jpg',
   copyright: 'Copyright (c) 2022-present, Desain',
   url: `${baseUrl}/feed.rss`
 }
@@ -19,20 +19,20 @@ const RSS: Theme.RSSOptions = {
 const blogTheme = getThemeConfig({
   RSS,
   author: 'Desain',
-  comment: {
-    repo: 'Desain7/personal-blog',
-    repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
-    category: 'Announcements',
-    categoryId: 'DIC_kwDODmEcc84COVc6',
-    inputPosition: 'top'
-  },
+  // comment: {
+  //   repo: 'Desain7/personal-blog',
+  //   repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
+  //   category: 'Announcements',
+  //   categoryId: 'DIC_kwDODmEcc84COVc6',
+  //   inputPosition: 'top'
+  // },
   popover: {
     title: '公告',
     body: [
       { type: 'text', content: '欢迎来到我的网站' },
       {
         type: 'image',
-        src: 'https://oss.desain7.top/piclst.gif'
+        src: 'http://oss.desain7.top/piclst.gif'
       },
       {
         type: 'text',
@@ -45,7 +45,7 @@ const blogTheme = getThemeConfig({
     {
       nickname: 'demo',
       des: 'des',
-      avatar: 'https://oss.desain7.top/bg2.jpg',
+      avatar: 'http://oss.desain7.top/bg2.jpg',
       url: 'https://github.com/desain7'
     }
   ],
@@ -97,7 +97,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
   lang: 'zh-cn',
   title: 'Desain',
-  base: './',
+  base: '/personal-blog/',
   description:
     'Desain的个人博客，记录学习笔记，前端相关知识，高频面试题，个人面经等',
   head: [
