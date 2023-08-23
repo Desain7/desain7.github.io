@@ -1,5 +1,5 @@
 import { EnhanceAppContext } from 'vitepress'
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@desain/theme'
 // 使用之前的绿色主题
 import './green-theme.var.css'
 // 全局组件

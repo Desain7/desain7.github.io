@@ -1,4 +1,4 @@
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@desain/theme'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 import './green-theme.var.css'
 export default {

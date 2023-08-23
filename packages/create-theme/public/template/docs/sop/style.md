@@ -18,7 +18,7 @@ recommend: 3
 
 ```ts
 // .vitepress/theme/index.ts [!code focus]
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@desain/theme'
 // 自定义样式重载 // [!code focus]
 import './style.scss' // [!code focus]
 
@@ -113,7 +113,7 @@ vitepress 最新的默认主题色偏紫色，看着感觉有点不习惯
 将其引入到`.vitepress/theme/index.ts`中即可
 
 ```ts
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@desain/theme'
 // 导入绿色主题
 import './green-theme.var.css'
 

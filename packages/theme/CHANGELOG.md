@@ -1,4 +1,4 @@
-# @sugarat/theme
+# @desain/theme
 
 ## 0.1.41
 

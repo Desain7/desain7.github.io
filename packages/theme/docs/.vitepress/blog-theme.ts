@@ -1,5 +1,5 @@
-import type { Theme } from '@sugarat/theme'
-import { getThemeConfig } from '@sugarat/theme/node'
+import type { Theme } from '@desain/theme'
+import { getThemeConfig } from '@desain/theme/node'
 
 export const workConfig: Theme.UserWorks = {
   title: '个人项目/线上作品',
@@ -7,7 +7,7 @@ export const workConfig: Theme.UserWorks = {
   topTitle: '举些🌰',
   list: [
     {
-      title: '博客主题 @sugarat/theme',
+      title: '博客主题 @desain/theme',
       description: '基于 vitepress 实现的博客主题',
       time: {
         start: '2023/01/29'
@@ -137,7 +137,7 @@ export const workConfig: Theme.UserWorks = {
 
 const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
-  title: '@sugarat/theme',
+  title: '@desain/theme',
   baseUrl,
   description: '简约风的 Vitepress 博客主题',
   id: baseUrl,

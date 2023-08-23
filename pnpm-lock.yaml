@@ -52,7 +52,7 @@ importers:
       '@element-plus/icons-vue':
         specifier: ^2.1.0
         version: 2.1.0(vue@3.3.4)
-      '@sugarat/theme':
+      '@desain/theme':
         specifier: workspace:*
         version: link:../theme
       axios:

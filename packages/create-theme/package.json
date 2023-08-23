@@ -1,5 +1,5 @@
 {
-  "name": "@sugarat/create-theme",
+  "name": "@desain/create-theme",
   "version": "0.0.10",
   "description": "简约风的 Vitepress 博客主题，sugarat vitepress blog theme",
   "bin": {

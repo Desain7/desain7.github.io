@@ -298,4 +298,4 @@ interface SearchConfig {
 * [pagefind](https://github.com/cloudcannon/pagefind)
 * [vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search)
 * [vue-command-palette](https://github.com/xiaoluoboding/vue-command-palette)
-* [@sugarat/theme](https://github.com/Desain7/personal-blog/tree/master/packages/theme)
+* [@desain/theme](https://github.com/Desain7/personal-blog/tree/master/packages/theme)

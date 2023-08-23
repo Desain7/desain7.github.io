@@ -34,7 +34,7 @@
 import { ElIcon, ElButton } from 'element-plus'
 import { Flag, CircleCloseFilled } from '@element-plus/icons-vue'
 import { computed, onMounted, ref, h } from 'vue'
-import type { BlogPopover } from '@sugarat/theme'
+import type { BlogPopover } from '@desain/theme'
 import { parseStringStyle } from '@vue/shared'
 import { useBlogConfig } from '../composables/config/blog'
 

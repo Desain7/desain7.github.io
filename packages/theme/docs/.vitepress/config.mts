@@ -1,12 +1,12 @@
 import path from 'path'
-import { defineConfig } from '@sugarat/theme/node'
+import { defineConfig } from '@desain/theme/node'
 import packageJSON from '../../package.json'
 import { blogTheme, extraHead } from './blog-theme'
 
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '@sugarat/theme',
+  title: '@desain/theme',
   description: '粥里有勺糖的博客主题，基于 vitepress 实现',
   head: [...extraHead],
   vite: {
@@ -15,7 +15,7 @@ export default defineConfig({
     },
     resolve: {
       alias: {
-        '@sugarat/theme': path.join(__dirname, '../../src/index.ts')
+        '@desain/theme': path.join(__dirname, '../../src/index.ts')
       }
     },
     optimizeDeps: {
@@ -24,7 +24,7 @@ export default defineConfig({
   },
   themeConfig: {
     footer: {
-      message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @sugarat/theme@${packageJSON.version} </a>`,
+      message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @desain/theme@${packageJSON.version} </a>`,
       copyright: 'MIT License | Copyright © 粥里有勺糖'
     },
     nav: [

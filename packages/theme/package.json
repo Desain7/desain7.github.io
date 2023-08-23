@@ -1,5 +1,5 @@
 {
-  "name": "@sugarat/theme",
+  "name": "@desain/theme",
   "version": "0.1.41",
   "description": "简约风的 Vitepress 博客主题，sugarat vitepress blog theme",
   "main": "src/index.ts",

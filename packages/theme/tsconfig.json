@@ -14,8 +14,8 @@
     "allowJs": true,
     "resolveJsonModule":true,
     "paths": {
-      "@sugarat/theme/node": ["./node"],
-      "@sugarat/theme": ["src/index.ts"]
+      "@desain/theme/node": ["./node"],
+      "@desain/theme": ["src/index.ts"]
     }
   },
   "include": ["src", "types","docs/.vitepress/*.ts", "docs/.vitepress/config.mts"],

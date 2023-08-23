@@ -1,4 +1,4 @@
-# @sugarat/create-theme
+# @desain/create-theme
 快速创建简约风的 Vitepress 博客主题项目模板，更多细节见 https://theme.sugarat.top
 
 ![图片](https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303)
@@ -8,19 +8,19 @@
 With NPM:
 
 ```bash
-$ npm create @sugarat/theme@latest
+$ npm create @desain/theme@latest
 ```
 
 With Yarn:
 
 ```bash
-$ yarn create @sugarat/theme
+$ yarn create @desain/theme
 ```
 
 With PNPM:
 
 ```bash
-$ pnpm create @sugarat/theme
+$ pnpm create @desain/theme
 ```
 
 Then follow the prompts!
@@ -29,11 +29,11 @@ You can also directly specify the project name you want to use via additional co
 
 ```bash
 # npm
-npm create @sugarat/theme@latest my-first-blog
+npm create @desain/theme@latest my-first-blog
 
 # yarn
-yarn create @sugarat/theme my-first-blog
+yarn create @desain/theme my-first-blog
 
 # pnpm
-pnpm create @sugarat/theme my-first-blog
+pnpm create @desain/theme my-first-blog
 ```

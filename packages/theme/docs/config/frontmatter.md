@@ -43,7 +43,7 @@ layout: home
 layout: home
 blog:
  # 设置首页的 banner 信息
- name: '@sugarat/theme'
+ name: '@desain/theme'
  motto: 粥里有勺糖的博客主题
  inspiring: 基于 Vitepress 定制的主题🎨
  # 设置首页列表每页展示数量
@@ -75,7 +75,7 @@ interface HomeBlog {
 ---
 # 省略其它配置
 blog:
- name: '@sugarat/theme'
+ name: '@desain/theme'
  motto: 粥里有勺糖的博客主题
  inspiring:
   - 基于 Vitepress 定制的主题🎨
@@ -149,7 +149,7 @@ description: 简单介绍主题的由来和实现原理
 descriptionHTML: '
 <span style="color:var(--description-font-color);">1分钟内完成自己的博客创建</span>
 <pre style="background-color: #292b30; padding: 15px; border-radius: 10px;" class="shiki material-theme-palenight"><code>
-    <span class="line"><span style="color:#FFCB6B;">npm</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">create</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">@sugarat/theme@latest</span></span>
+    <span class="line"><span style="color:#FFCB6B;">npm</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">create</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">@desain/theme@latest</span></span>
 </code>
 </pre>'
 ---

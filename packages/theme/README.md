@@ -1,4 +1,4 @@
-# @sugarat/theme
+# @desain/theme
 
 简约风的 Vitepress 博客主题，更多细节见 https://theme.sugarat.top
 
@@ -9,13 +9,13 @@
 
 ```bash
 # With PNPM:
-pnpm create @sugarat/theme
+pnpm create @desain/theme
 
 # With NPM:
-npm create @sugarat/theme@latest
+npm create @desain/theme@latest
 
 # With Yarn:
-yarn create @sugarat/theme
+yarn create @desain/theme
 ```
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY4OTQyMDE1NTcxMA==689420155710)

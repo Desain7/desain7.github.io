@@ -8,25 +8,25 @@ publish: false
 ### Patch Changes
 
 - Updated dependencies
-  - @sugarat/theme@0.1.41
+  - @desain/theme@0.1.41
 
 ## 2.0.5
 
 ### Patch Changes
 
 - Updated dependencies
-  - @sugarat/theme@0.1.40
+  - @desain/theme@0.1.40
 
 ## 2.0.4
 
 ### Patch Changes
 
 - Updated dependencies
-  - @sugarat/theme@0.1.39
+  - @desain/theme@0.1.39
 
 ## 2.0.3
 
 ### Patch Changes
 
 - Updated dependencies
-  - @sugarat/theme@0.1.38
+  - @desain/theme@0.1.38

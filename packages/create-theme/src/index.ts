@@ -38,7 +38,7 @@ function createThemeProject(destination) {
   })
 }
 
-console.log('Creating @sugarat/theme project...')
+console.log('Creating @desain/theme project...')
 console.log()
 
 const projectName = process.argv[2] || 'my-blog'

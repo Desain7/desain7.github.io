@@ -1,5 +1,5 @@
 // 主题独有配置
-import { getThemeConfig } from '@sugarat/theme/node';
+import { getThemeConfig } from '@desain/theme/node';
 
 // 详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({

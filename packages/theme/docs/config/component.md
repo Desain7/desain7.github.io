@@ -43,7 +43,7 @@ pnpm add vitepress-plugin-tabs@0.2.0
 
 ```ts [② 引入组件]
 // .vitepress/theme/index.ts
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@desain/theme'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -165,7 +165,7 @@ const blogTheme = getThemeConfig({
     topTitle: '举些🌰',
     list: [
       {
-        title: '博客主题 @sugarat/theme',
+        title: '博客主题 @desain/theme',
         description: '基于 vitepress 实现的博客主题',
         time: {
           start: '2023/01/29'

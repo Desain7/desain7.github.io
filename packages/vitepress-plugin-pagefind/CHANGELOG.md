@@ -59,4 +59,4 @@
 
 ### Minor Changes
 
-- feat: 从 [@sugarat/theme](https://github.com/Desain7/personal-blog/tree/master/packages/theme) 主题分离独立的 pagefind 插件
+- feat: 从 [@desain/theme](https://github.com/Desain7/personal-blog/tree/master/packages/theme) 主题分离独立的 pagefind 插件

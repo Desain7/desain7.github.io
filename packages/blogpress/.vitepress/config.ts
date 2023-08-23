@@ -1,6 +1,6 @@
-import { getThemeConfig, defineConfig } from '@sugarat/theme/node'
-import themePkg from '@sugarat/theme/package.json'
-import type { Theme } from '@sugarat/theme'
+import { getThemeConfig, defineConfig } from '@desain/theme/node'
+import themePkg from '@desain/theme/package.json'
+import type { Theme } from '@desain/theme'
 
 const baseUrl = 'https://desain7.top'
 const RSS: Theme.RSSOptions = {

@@ -4,7 +4,7 @@ description: 1分钟内完成自己的博客创建
 descriptionHTML: '
 <span style="color:var(--description-font-color);">1分钟内完成自己的博客创建</span>
 <pre style="background-color: #292b30; padding: 15px; border-radius: 10px;" class="shiki material-theme-palenight"><code>
-    <span class="line"><span style="color:#FFCB6B;">npm</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">create</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">@sugarat/theme@latest</span></span>
+    <span class="line"><span style="color:#FFCB6B;">npm</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">create</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">@desain/theme@latest</span></span>
 </code>
 </pre>'
 tag:
@@ -17,30 +17,30 @@ sidebar: false
 1分钟内完成自己的博客创建
 
 ## 快速创建项目 
-使用 [@sugarat/create-theme](https://github.com/Desain7/personal-blog/tree/master/packages/create-theme) 快速创建模板项目
+使用 [@desain/create-theme](https://github.com/Desain7/personal-blog/tree/master/packages/create-theme) 快速创建模板项目
 
 :::code-group
 ```sh [npm]
-npm create @sugarat/theme@latest
+npm create @desain/theme@latest
 ```
 ```sh [yarn]
-yarn create @sugarat/theme
+yarn create @desain/theme
 ```
 ```sh [pnpm]
-pnpm create @sugarat/theme
+pnpm create @desain/theme
 ```
 :::
 
 当然你也可以自定义项目名创建
 :::code-group
 ```sh [npm]
-npm create @sugarat/theme@latest my-first-blog
+npm create @desain/theme@latest my-first-blog
 ```
 ```sh [yarn]
-yarn create @sugarat/theme my-first-blog
+yarn create @desain/theme my-first-blog
 ```
 ```sh [pnpm]
-pnpm create @sugarat/theme my-first-blog
+pnpm create @desain/theme my-first-blog
 ```
 :::
 
@@ -89,7 +89,7 @@ pnpm serve
 
 如果主题更新了，升级主题，原项目只需执行如下指令即可
 ```sh
-pnpm up @sugarat/theme
+pnpm up @desain/theme
 ```
 
 ## 更多

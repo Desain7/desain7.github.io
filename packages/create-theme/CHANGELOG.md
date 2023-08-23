@@ -1,4 +1,4 @@
-# @sugarat/create-theme
+# @desain/create-theme
 
 ## 0.0.10
 

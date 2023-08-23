@@ -1,4 +1,4 @@
-import { defineConfig } from '@sugarat/theme/node'
+import { defineConfig } from '@desain/theme/node'
 import { blogTheme } from './blog-theme'
 
 
@@ -8,12 +8,12 @@ export default defineConfig({
   // 继承博客主题配置
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '@sugarat/theme',
+  title: '@desain/theme',
   description: '粥里有勺糖的博客主题，基于 vitepress 实现',
   vite: {
     optimizeDeps: {
       include: ['element-plus'],
-      exclude: ['@sugarat/theme']
+      exclude: ['@desain/theme']
     }
   },
   lastUpdated: true,
@@ -22,7 +22,7 @@ export default defineConfig({
     footer: {
       message: '自定义底部内容',
       copyright:
-        'MIT Licensed | <a target="_blank" href="https://theme.sugarat.top/"> @sugarat/theme </a>'
+        'MIT Licensed | <a target="_blank" href="https://theme.sugarat.top/"> @desain/theme </a>'
     },
     logo: '/logo.png',
     // editLink: {
