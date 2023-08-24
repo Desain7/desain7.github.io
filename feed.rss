@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Thu, 24 Aug 2023 08:28:39 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Aug 2023 08:52:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -16,8 +16,8 @@
         <copyright>Copyright (c) 2022-present, Desain</copyright>
         <item>
             <title><![CDATA[手写实现 Promise]]></title>
-            <link>https://desain7.top/coding/js/手写 promise.html</link>
-            <guid>https://desain7.top/coding/js/手写 promise.html</guid>
+            <link>https://desain7.top/coding/js/手写promise.html</link>
+            <guid>https://desain7.top/coding/js/手写promise.html</guid>
             <pubDate>Wed, 23 Aug 2023 16:00:00 GMT</pubDate>
             <description><![CDATA[Promise 简述
 ---
