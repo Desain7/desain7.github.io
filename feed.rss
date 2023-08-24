@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Wed, 23 Aug 2023 11:11:09 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Aug 2023 08:12:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -15,30 +15,163 @@
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
         <item>
-            <title><![CDATA[关于自己]]></title>
-            <link>https://desain7.top/aboutme.html</link>
-            <guid>https://desain7.top/aboutme.html</guid>
-            <pubDate>Fri, 10 Dec 2021 16:00:00 GMT</pubDate>
-            <description><![CDATA[99年出生，标准的理工男一枚,毕业于(西南石油大学),热爱开源与知识分享
-目前就职于 🛵美团🛵（Base 北京）
- :sparkles:当下
-巩固自己的基础知识，完善博客中规划的剩余内容
-提升技术]]></description>
-            <content:encoded><![CDATA[<h1 id="关于自己" tabindex="-1">关于自己 <a class="header-anchor" href="#关于自己" aria-label="Permalink to &quot;关于自己&quot;">&ZeroWidthSpace;</a></h1>
-<p>99年出生，标准的理工男一枚,毕业于(<a href="https://www.swpu.edu.cn/" target="_blank" rel="noreferrer">西南石油大学</a>),热爱开源与知识分享</p>
-<p>目前就职于 🛵<strong>美团</strong>🛵（Base 北京）</p>
-<h2 id="当下" tabindex="-1">✨当下 <a class="header-anchor" href="#当下" aria-label="Permalink to &quot;:sparkles:当下&quot;">&ZeroWidthSpace;</a></h2>
-<p><img src="https://img.cdn.sugarat.top/mdImg/MTYwNDcyMTQ4NTMyOA==604721485328" alt="图片"></p>
-<p>巩固自己的基础知识，完善博客中规划的剩余内容</p>
-<p>提升技术深度</p>
-<h2 id="未来" tabindex="-1">🚀未来 <a class="header-anchor" href="#未来" aria-label="Permalink to &quot;:rocket:未来&quot;">&ZeroWidthSpace;</a></h2>
-<p>沉淀技术,广度与深度3/7分，打磨自己做的一些小应用,确定自己最终深挖的领域</p>
-<h2 id="座右铭" tabindex="-1">📝座右铭 <a class="header-anchor" href="#座右铭" aria-label="Permalink to &quot;:pencil:座右铭&quot;">&ZeroWidthSpace;</a></h2>
-<p>你的指尖,拥有改变世界的力量😄</p>
-<h2 id="联系我" tabindex="-1">☎️联系我 <a class="header-anchor" href="#联系我" aria-label="Permalink to &quot;:phone:联系我&quot;">&ZeroWidthSpace;</a></h2>
-<p><strong>邮箱</strong>：engineerzjl@foxmail.com</p>
-<p><strong>微信</strong>：</p>
-<img src="https://img.cdn.sugarat.top/mdImg/MTYxMzIwMTA0NzIyNg==wx.jpg" style="width:200px;">
+            <title><![CDATA[手写实现 Promise]]></title>
+            <link>https://desain7.top/coding/js/手写 promise.html</link>
+            <guid>https://desain7.top/coding/js/手写 promise.html</guid>
+            <pubDate>Wed, 23 Aug 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[Promise 简述
+---
+1. 首先定义三种状态
+* Promise 的三种状态
+  - pending（等待）: 初始状态，没有完成，也没有被拒绝
+  - resolved（完成）: 表示操作成]]></description>
+            <content:encoded><![CDATA[<h1 id="手写实现-promise" tabindex="-1">手写实现 Promise <a class="header-anchor" href="#手写实现-promise" aria-label="Permalink to &quot;手写实现 Promise&quot;">&ZeroWidthSpace;</a></h1>
+<p><a href="/interview/js/Promise简述.html">Promise 简述</a></p>
+<hr>
+<ol>
+<li>首先定义三种状态</li>
+</ol>
+<ul>
+<li>Promise 的三种状态
+<ul>
+<li>pending（等待）: 初始状态，没有完成，也没有被拒绝</li>
+<li>resolved（完成）: 表示操作成功完成</li>
+<li>rejectde（拒绝）: 表示操作失败</li>
+</ul>
+</li>
+</ul>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> PENDING </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">PENDING</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">// 进行中</span></span>
+<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> FULFILLED </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">FULFILLED</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">// 已成功</span></span>
+<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> REJECTED </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">REJECTED</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">// 已失败</span></span></code></pre>
+</div><ol start="2">
+<li></li>
+</ol>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Promise的特点是什么，分别有什么优缺点？什么是Promise链？Promise构造函数执行和then函数执行有什么区别？]]></title>
+            <link>https://desain7.top/interview/js/Promise简述.html</link>
+            <guid>https://desain7.top/interview/js/Promise简述.html</guid>
+            <pubDate>Wed, 23 Aug 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[ 特点
+* Promise 有三种状态
+  * pending（等待）: 初始状态，没有完成，也没有被拒绝
+  * resolved（完成）: 表示操作成功完成
+  * rejectde（拒绝）: 表]]></description>
+            <content:encoded><![CDATA[<h1 id="promise-的特点是什么-分别有什么优缺点-什么是-promise-链-promise-构造函数执行和-then-函数执行有什么区别" tabindex="-1">Promise 的特点是什么，分别有什么优缺点？什么是 Promise 链？Promise 构造函数执行和 then 函数执行有什么区别？ <a class="header-anchor" href="#promise-的特点是什么-分别有什么优缺点-什么是-promise-链-promise-构造函数执行和-then-函数执行有什么区别" aria-label="Permalink to &quot;Promise 的特点是什么，分别有什么优缺点？什么是 Promise 链？Promise 构造函数执行和 then 函数执行有什么区别？&quot;">&ZeroWidthSpace;</a></h1>
+<h2 id="特点" tabindex="-1">特点 <a class="header-anchor" href="#特点" aria-label="Permalink to &quot;特点&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>Promise 有三种状态
+<ul>
+<li>pending（等待）: 初始状态，没有完成，也没有被拒绝</li>
+<li>resolved（完成）: 表示操作成功完成</li>
+<li>rejectde（拒绝）: 表示操作失败</li>
+</ul>
+</li>
+<li>如果一个 Promise 从等待状态变为其他状态就永远不能更改状态，此时的状态可称为 settled（已敲定）</li>
+</ul>
+<h2 id="优点" tabindex="-1">优点 <a class="header-anchor" href="#优点" aria-label="Permalink to &quot;优点&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>
+<p>很好的解决了回调地狱的问题</p>
+</li>
+<li>
+<p>Promise 利用三大手段解决回调地狱：</p>
+<ol>
+<li>回调函数延迟绑定
+通过将回调函数封装在一个函数中，并在异步操作完成后调用该函数并传递结果实现</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 异步操作返回一个 Promise 对象</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">asyncOperation</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">resolve</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">       </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">result</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Operation result</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">       </span><span style="color: #82AAFF">resolve</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #F78C6C">1000</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">nextOperation</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">result</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">   </span><span style="color: #676E95; font-style: italic">// 执行下一个操作</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF"> </span><span style="color: #676E95; font-style: italic">// 通过 .then() 方法，在异步操作完成后执行下一个操作，若出现错误，则用 .catch() 捕获并处理</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">asyncOperation</span><span style="color: #A6ACCD">()</span></span>
+<span class="line"><span style="color: #A6ACCD">   </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">then</span><span style="color: #A6ACCD">(nextOperation)</span></span>
+<span class="line"><span style="color: #A6ACCD">   </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">catch</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">error</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">error</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">error</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div><ol start="2">
+<li>返回值穿透
+通过一个函数返回 Promise，以链式的方式连接多个异步操作，避免嵌套回调函数</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">asyncOperation</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">resolve</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">result</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Operation result</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #82AAFF">resolve</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #F78C6C">1000</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 每个 .then() 方法都返回一个新的 Promise 对象，从而将多个操作连接在一起，并在过程中完成值的传递</span></span>
+<span class="line"><span style="color: #82AAFF">asyncOperation</span><span style="color: #A6ACCD">()</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">then</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">result</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">   </span><span style="color: #676E95; font-style: italic">// 执行下一个操作</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Next operation result</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">then</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">nextResult</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">nextResult</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">   </span><span style="color: #676E95; font-style: italic">// 执行下一个操作</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">catch</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">error</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">error</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">error</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div><ol start="3">
+<li>错误冒泡
+通过在 Promise 链中使用 .catch() 方法来捕获和处理错误，避免它们在链中传播并导致回调地狱</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">asyncOperation</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">resolve</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD; font-style: italic">reject</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">     </span><span style="color: #676E95; font-style: italic">// 若异步操作失败，就抛出错误，并将 Promise 的状态变为 rejected</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">error</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #82AAFF">Error</span><span style="color: #F07178">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Operation failed</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">     </span><span style="color: #82AAFF">reject</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">error</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #F78C6C">1000</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #82AAFF">asyncOperation</span><span style="color: #A6ACCD">()</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">then</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">result</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">   </span><span style="color: #676E95; font-style: italic">// 执行下一个操作</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">catch</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">error</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">   </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">error</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">error</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">   </span><span style="color: #676E95; font-style: italic">// 错误处理逻辑</span></span>
+<span class="line"><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div></li>
+</ul>
+<h2 id="缺点" tabindex="-1">缺点 <a class="header-anchor" href="#缺点" aria-label="Permalink to &quot;缺点&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>无法取消
+Promise 一旦创建并开始执行后，就无法取消了</li>
+<li>异常处理比较复杂
+Promise 的异常处理需要通过 .catch() 方法，或在每个 .then() 方法中处处理错误来实现</li>
+</ul>
+<h2 id="promise链" tabindex="-1">Promise链 <a class="header-anchor" href="#promise链" aria-label="Permalink to &quot;Promise链&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>每次调用 .then() 之后返回的都是一个全新的 Promise，此时又可以接着使用 .then() 方法,由此便形成了一条 Promise 链</li>
+<li>在 .then() 中 使用了 return，那么 return 的值会被 Promise.resolve() 包装</li>
+</ul>
+<h2 id="promise-构造函数执行和-then-函数执行有什么区别" tabindex="-1">Promise 构造函数执行和 then 函数执行有什么区别 <a class="header-anchor" href="#promise-构造函数执行和-then-函数执行有什么区别" aria-label="Permalink to &quot;Promise 构造函数执行和 then 函数执行有什么区别&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>构造 Promise 时，构造函数内部的代码是立即执行的（同步）</li>
+<li>.then() 在  Promise 对象的状态变为 resolved 时执行（异步）</li>
+</ul>
+<div class="tip custom-block"><p class="custom-block-title">TIP</p>
+<p>.then() 中的回调函数会被放入微任务队列中，等待 JavaScript 引擎空闲时执行</p>
+</div>
 ]]></content:encoded>
         </item>
     </channel>
