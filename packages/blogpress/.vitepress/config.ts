@@ -19,13 +19,13 @@ const RSS: Theme.RSSOptions = {
 const blogTheme = getThemeConfig({
   RSS,
   author: 'Desain',
-  // comment: {
-  //   repo: 'Desain7/personal-blog',
-  //   repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
-  //   category: 'Announcements',
-  //   categoryId: 'DIC_kwDODmEcc84COVc6',
-  //   inputPosition: 'top'
-  // },
+  comment: {
+    repo: 'Desain7/desain7.github.io',
+    repoId: 'R_kgDOKKbERQ',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOKKbERc4CY00O',
+    inputPosition: 'top'
+  },
   popover: {
     title: '公告',
     body: [
