@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Thu, 24 Aug 2023 09:45:39 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Aug 2023 11:04:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -47,6 +47,48 @@
 <li></li>
 </ol>
 ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[节流&防抖]]></title>
+            <link>https://desain7.top/coding/js/节流&amp;防抖.html</link>
+            <guid>https://desain7.top/coding/js/节流&amp;防抖.html</guid>
+            <pubDate>Wed, 23 Aug 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[ 节流
+* 规定一个时间，在这个时间内，只能有一次触发事件的回调函数执行，如果在同一个时间内某事件被触发多次，只有一次能生效
+```js
+const throttle = function (call]]></description>
+            <content:encoded><![CDATA[<h1 id="节流-防抖" tabindex="-1">节流&amp;防抖 <a class="header-anchor" href="#节流-防抖" aria-label="Permalink to &quot;节流&amp;防抖&quot;">&ZeroWidthSpace;</a></h1>
+<h2 id="节流" tabindex="-1">节流 <a class="header-anchor" href="#节流" aria-label="Permalink to &quot;节流&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>规定一个时间，在这个时间内，只能有一次触发事件的回调函数执行，如果在同一个时间内某事件被触发多次，只有一次能生效</li>
+</ul>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> throttle </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">callback</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD; font-style: italic">delay</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">let</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">timer</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">null</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">timer</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF; font-style: italic">return</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">callback</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD">timer</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #A6ACCD">timer</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">null</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">delay</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><h2 id="防抖" tabindex="-1">防抖 <a class="header-anchor" href="#防抖" aria-label="Permalink to &quot;防抖&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>规定一个时间，在这个时间内，一次触发事件的回调函数会被执行，如果在同一时间内某事件被触发多次，该回调函数会被重新执行</li>
+</ul>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> debounce </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">callback</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD; font-style: italic">delay</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">let</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">timer</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">null</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">clearTimeout</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">timer</span><span style="color: #F07178">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD">timer</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #82AAFF">callback</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">delay</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Promise的特点是什么，分别有什么优缺点？什么是Promise链？Promise构造函数执行和then函数执行有什么区别？]]></title>
