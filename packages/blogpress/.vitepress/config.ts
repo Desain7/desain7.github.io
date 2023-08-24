@@ -41,14 +41,14 @@ const blogTheme = getThemeConfig({
     ],
     duration: -1
   },
-  friend: [
-    {
-      nickname: 'demo',
-      des: 'des',
-      avatar: 'http://oss.desain7.top/bg2.jpg',
-      url: 'https://github.com/desain7'
-    }
-  ],
+  // friend: [
+  //   {
+  //     nickname: 'demo',
+  //     des: 'des',
+  //     avatar: 'http://oss.desain7.top/bg2.jpg',
+  //     url: 'https://github.com/desain7'
+  //   }
+  // ],
   search: false,
   recommend: {
     showSelf: true,
