@@ -208,7 +208,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Desain7/personal-blog' }
+      { icon: 'github', link: 'https://github.com/Desain7/desain7.github.io' }
     ]
   }
 })
