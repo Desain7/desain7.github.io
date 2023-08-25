@@ -131,9 +131,9 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: 'F919JCK8WY',
-        apiKey: '3eca209ad24bdfc26db63382dd5e4490',
-        indexName: 'sugarat_top',
+        appId: '3VTA3J7890',
+        apiKey: '2db23e72e7426d636f6858e0ce35088a',
+        indexName: 'desain7',
         placeholder: '请输入要搜索的内容...'
       }
     },
