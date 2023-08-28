@@ -3,7 +3,7 @@
   &::before {
     // 图片来源：https://zhuanlan.zhihu.com/p/54060187
     background-image: url(./assets/bg.webp);
-    background-size: cover;
+    background-size: contain;
   }
   // 定义遮罩样式
   background: radial-gradient(

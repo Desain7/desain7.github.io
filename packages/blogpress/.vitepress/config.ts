@@ -33,10 +33,6 @@ const blogTheme = getThemeConfig({
       {
         type: 'image',
         src: 'http://oss.desain7.top/piclst.gif'
-      },
-      {
-        type: 'text',
-        content: '欢迎大家私信交流'
       }
     ],
     duration: -1
