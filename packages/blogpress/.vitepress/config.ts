@@ -91,7 +91,7 @@ const extraHead: any =
 export default defineConfig({
   extends: blogTheme,
   ignoreDeadLinks: true,
-  lang: 'zh-cn',
+  lang: 'zh-CN',
   title: 'Desain',
   base: '/',
   description:
