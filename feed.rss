@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Wed, 13 Sep 2023 15:30:21 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Sep 2023 12:50:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -79,7 +79,7 @@ UDP 是一种无连]]></description>
 <h2 id="udp-用户数据报协议" tabindex="-1">UDP（用户数据报协议） <a class="header-anchor" href="#udp-用户数据报协议" aria-label="Permalink to &quot;UDP（用户数据报协议）&quot;">&ZeroWidthSpace;</a></h2>
 <p>UDP 是一种无连接的协议。</p>
 <p>UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。</p>
-<p><strong>UDP 的特点如下</strong>：</p>
+<p><strong>UDP 的特点包括</strong>：</p>
 <ol>
 <li>面向无连接</li>
 </ol>
@@ -123,7 +123,54 @@ UDP 是一种无连]]></description>
 <li>整个数据报文的检验和（IPv4 可选字段），该字段用于发现头部信息和数据中的错误</li>
 </ul>
 <p>因此 UDP 的头部开销小，只有8字节，相比 TCP 的至少20字节要少得多，在传输数据报文时是很高效的。</p>
+<p><strong>UDP 不可靠的原因</strong>：</p>
+<p>UDP 在传输数据之前不需要先建立连接，接收端的传输层在接收到 UDP 报文后，不需要确认，提供不可靠交付。</p>
+<ul>
+<li>不保证消息交付：不确认，不重传，无超时</li>
+<li>不保证交付顺序：不设置包序号，不重排，不会发生队首阻塞</li>
+<li>不跟踪连接状态：不必建立连接或重启状态机</li>
+<li>不进行拥塞控制：不内置客户端或网络反馈机制</li>
+</ul>
 <h2 id="tcp-传输控制协议" tabindex="-1">TCP（传输控制协议） <a class="header-anchor" href="#tcp-传输控制协议" aria-label="Permalink to &quot;TCP（传输控制协议）&quot;">&ZeroWidthSpace;</a></h2>
+<p>TCP 是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p><strong>TCP 的特点包括</strong>：</p>
+<ol>
+<li>面向连接</li>
+</ol>
+<p>TCP 在发送数据之前必须在两端建立连接。通过“三次握手”能够建立可靠的链接，为数据的可靠传输打下基础。</p>
+<ol start="2">
+<li>单播传输</li>
+</ol>
+<p>TCP 仅支持单薄传输，每一次传输连接只能有两个端点，不支持多播和广播。</p>
+<ol start="3">
+<li>面向字节流</li>
+</ol>
+<p>不同于 UDP 那样面向报文的传输，TCP 可以在不保留边界的条件下以字节流的方式进行传输。</p>
+<ol start="4">
+<li>可靠传输</li>
+</ol>
+<p>TCP 判断丢包、误码靠的是 TCP 的段编号以及确认号。</p>
+<p>TCP 为了保证报文传输的可靠性，会给每个包一个序号，这个序号也保证了接收端能够按序接收包。</p>
+<p>接收端实体会对每一个成功收到的包发送一个相应的确认。</p>
+<p>如果发送端实体在合理的往返时延(RTT)内未收到确认，那么对应的数据（会被认定为丢失了）将会被重传。</p>
+<ol start="5">
+<li>拥塞控制</li>
+</ol>
+<p>网络出现拥塞时，TCP 能减小向网络注入数据的速率和数量，缓解拥塞。</p>
+<ol start="6">
+<li>支持全双工通信</li>
+</ol>
+<p>TCP 允许通信双方在任何时刻发送数据，因为TCP连接的两端都设有缓存，用来临时存放<em>双向通信</em>的数据。</p>
+<p>TCP 可以立即发送一个数据端，也可以缓存一段时间后，一次发送更多数据段。</p>
+<p><strong>TCP 的重传机制</strong>：</p>
+<p>由于 TCP 的下层网络（网络层），可能出现<em>丢失、重复或失序的情况</em>，TCP 协议提供可靠数据传输服务，为了保证数据传输的正确性，TCP 会重传已被认为丢失的包。</p>
+<p>TCP使用两套独立的机制来完成重传，一是基于时间，二是基于确认信息。</p>
+<p>TCP在发送一个数据之后，就开启一个定时器，若是在这个时间内没有收到发送数据的 ACK 确认报文，则对该报文进行重传，在达到一定次数还没有成功时放弃并发送一个复位信号。</p>
+<h2 id="tcp-和-udp-的应用场景" tabindex="-1">TCP 和 UDP 的应用场景 <a class="header-anchor" href="#tcp-和-udp-的应用场景" aria-label="Permalink to &quot;TCP 和 UDP 的应用场景&quot;">&ZeroWidthSpace;</a></h2>
+<p><strong>TCP</strong>: 适用于效率要求较低，准确性要求相对高的场景。由于传输中需要对数据进行确认、重发、排序等操作，效率低于 UDP。</p>
+<p>例如： 文件传输、邮件传输、远程登陆、Web 应用程序</p>
+<p><strong>UDP</strong>：适用于效率要求高，准确性要求低的场景。</p>
+<p>例如：QQ聊天、在线直播、广播通信</p>
 ]]></content:encoded>
         </item>
         <item>
