@@ -38,7 +38,8 @@
     "pc": "pnpm changeset",
     "pc:version": "pnpm changeset version",
     "pcpe": "changeset pre enter beta",
-    "pcpe:exit": "changeset pre enter exit"
+    "pcpe:exit": "changeset pre enter exit",
+    "code": "nodemon ./packages/local-runtime/index.js"
   },
   "repository": {
     "type": "git",
