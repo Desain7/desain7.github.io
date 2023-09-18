@@ -299,5 +299,220 @@ categories:
 
 ![](https://res.weread.qq.com/wrepub/CB_3300028078_image00556.jpeg)
 
-## 双端 Diff 算法的优势
+## 非理想状况的处理方式
 
+双端 Diff 算法的每一轮比较的过程都分为四个步骤，但每一轮比较不可能都会命中四个步骤中的一个，这是非常理想的情况。
+
+以下面这组节点为例：
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00563.jpeg)
+
+当按照双端 Diff 算法的思路对它们进行第一轮比较时，会发现无法命中四个步骤中的任何一步。
+
+此时，只能通过只能加额外的处理步骤来处理这种非理想情况。头尾的四个节点都没有可复用的节点，就应该尝试非头尾的节点能否复用。
+
+具体做法为，在旧子节点中寻找新子节点的头部，代码如下：
+
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   if (oldStartVNode.key === newStartVNode.key) {
+03     // 省略部分代码
+04   } else if (oldEndVNode.key === newEndVNode.key) {
+05     // 省略部分代码
+06   } else if (oldStartVNode.key === newEndVNode.key) {
+07     // 省略部分代码
+08   } else if (oldEndVNode.key === newStartVNode.key) {
+09     // 省略部分代码
+10   } else {
+11     // 遍历旧的一组子节点，试图寻找与 newStartVNode 拥有相同 key 值的节点
+12     // idxInOld 就是新的一组子节点的头部节点在旧的一组子节点中的索引
+13     const idxInOld = oldChildren.findIndex(
+14       node => node.key === newStartVNode.key
+15     )
+16   }
+17 }
+```
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00564.jpeg)
+
+当拿新子节点的头部节点 p-2 在旧子节点中寻找时，发现可复用的节点在索引为 1 的位置。
+
+说明节点 p-2 原本不是头部节点，但在更新后它应该变为头部节点。
+
+所以需要将节点 p-2 对应的真实 DOM 节点移动到旧子节点的头部节点 p-1 对应的真实 DOM 节点之前。
+
+具体实现如下：
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   if (oldStartVNode.key === newStartVNode.key) {
+03     // 省略部分代码
+04   } else if (oldEndVNode.key === newEndVNode.key) {
+05     // 省略部分代码
+06   } else if (oldStartVNode.key === newEndVNode.key) {
+07     // 省略部分代码
+08   } else if (oldEndVNode.key === newStartVNode.key) {
+09     // 省略部分代码
+10   } else {
+11     // 遍历旧 children，试图寻找与 newStartVNode 拥有相同 key 值的元素
+12     const idxInOld = oldChildren.findIndex(
+13       node => node.key === newStartVNode.key
+14     )
+15     // idxInOld 大于 0，说明找到了可复用的节点，并且需要将其对应的真实 DOM 移动到头部
+16     if (idxInOld > 0) {
+17       // idxInOld 位置对应的 vnode 就是需要移动的节点
+18       const vnodeToMove = oldChildren[idxInOld]
+19       // 不要忘记除移动操作外还应该打补丁
+20       patch(vnodeToMove, newStartVNode, container)
+21       // 将 vnodeToMove.el 移动到头部节点 oldStartVNode.el 之前，因此使用后者作为锚点
+22       insert(vnodeToMove.el, container, oldStartVNode.el)
+23       // 由于位置 idxInOld 处的节点所对应的真实 DOM 已经移动到了别处，因此将其设置为 undefined
+24       oldChildren[idxInOld] = undefined
+25       // 最后更新 newStartIdx 到下一个位置
+26       newStartVNode = newChildren[++newStartIdx]
+27     }
+28   }
+29 }
+```
+
+经过上面的操作后，新旧两组子节点以及真实 DOM 节点的状态如下：
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00565.jpeg)
+
+接着，双端 Diff 算法会继续进行。
+
+需要注意的是，过程中会遇到之前被设为 undefined 的节点。这说明该节点已经被处理过了，因此可以直接跳过。为此，需要补充这部分逻辑的代码。具体如下：
+
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   // 增加两个判断分支，如果头尾部节点为 undefined，则说明该节点已经被处理过了，直接跳到下一个位置
+03   if (!oldStartVNode) {
+04     oldStartVNode = oldChildren[++oldStartIdx]
+05   } else if (!oldEndVNode) {
+06     oldEndVNode = oldChildren[--oldEndIdx]
+07   } else if (oldStartVNode.key === newStartVNode.key) {
+08     // 省略部分代码
+09   } else if (oldEndVNode.key === newEndVNode.key) {
+10     // 省略部分代码
+11   } else if (oldStartVNode.key === newEndVNode.key) {
+12     // 省略部分代码
+13   } else if (oldEndVNode.key === newStartVNode.key) {
+14     // 省略部分代码
+15   } else {
+16     const idxInOld = oldChildren.findIndex(
+17       node => node.key === newStartVNode.key
+18     )
+19     if (idxInOld > 0) {
+20       const vnodeToMove = oldChildren[idxInOld]
+21       patch(vnodeToMove, newStartVNode, container)
+22       insert(vnodeToMove.el, container, oldStartVNode.el)
+23       oldChildren[idxInOld] = undefined
+24       newStartVNode = newChildren[++newStartIdx]
+25     }
+26
+27   }
+28 }
+```
+
+
+## 添加新元素
+
+当一轮比较过程中不会命中四个步骤中的任何一步时，会拿新的一组子节点中的头部节点去旧的一组子节点中寻找可复用的节点。然而，并不一定能找到。
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00571.jpeg)
+
+对这组节点进行第一轮比较时，无法找到可复用的节点。因为旧子节点中根本没有 p-4 节点。
+
+这说明节点 p-4 是一个新增节点，因为它是新子节点中的头节点，所以直接将它挂载到旧子节点的头部节点对应的真实 DOM 节点前即可。
+
+代码如下：
+
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   // 增加两个判断分支，如果头尾部节点为 undefined，则说明该节点已经被处理过了，直接跳到下一个位置
+03   if (!oldStartVNode) {
+04     oldStartVNode = oldChildren[++oldStartIdx]
+05   } else if (!oldEndVNode) {
+06     oldEndVNode = newChildren[--oldEndIdx]
+07   } else if (oldStartVNode.key === newStartVNode.key) {
+08     // 省略部分代码
+09   } else if (oldEndVNode.key === newEndVNode.key) {
+10     // 省略部分代码
+11   } else if (oldStartVNode.key === newEndVNode.key) {
+12     // 省略部分代码
+13   } else if (oldEndVNode.key === newStartVNode.key) {
+14     // 省略部分代码
+15   } else {
+16     const idxInOld = oldChildren.findIndex(
+17       node => node.key === newStartVNode.key
+18     )
+19     if (idxInOld > 0) {
+20       const vnodeToMove = oldChildren[idxInOld]
+21       patch(vnodeToMove, newStartVNode, container)
+22       insert(vnodeToMove.el, container, oldStartVNode.el)
+23       oldChildren[idxInOld] = undefined
+24     } else {
+25       // 将 newStartVNode 作为新节点挂载到头部，使用当前头部节点 oldStartVNode.el 作为锚点
+26       patch(null, newStartVNode, container, oldStartVNode.el)
+27     }
+28     newStartVNode = newChildren[++newStartIdx]
+29   }
+30 }
+```
+
+上面的代码还存在一些问题，如果频繁对尾部节点进行更新，会导致 oldEndIdx 小于 oldStartIdx 而结束更新的过程。
+
+如下所示：
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00577.jpeg)
+
+节点 p-4 直接在更新过程中被遗漏了，没有得到任何处理。
+
+为了弥补这个缺陷，需要添加额外的处理代码：
+
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   // 省略部分代码
+03 }
+04
+05 // 循环结束后检查索引值的情况，
+06 if (oldEndIdx < oldStartIdx && newStartIdx <= newEndIdx) {
+07   // 如果满足条件，则说明有新的节点遗留，需要挂载它们
+08   for (let i = newStartIdx; i <= newEndIdx; i++) {
+09     patch(null, newChildren[i], container, oldStartVNode.el)
+10   }
+11 }
+```
+
+在 while 循环结束后增加一个条件判断，检查四个索引值的情况。如果还存在未挂载的新节点，将它们一一挂载到  oldStartVNode 对应的真实 DOM 节点前。
+
+## 移除不存在的元素
+
+我们还会遇到新节点中的节点少于旧节点的情况，此时，需要移除元素。
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00578.jpeg)
+
+对上面这组节点进行数轮更新后，新旧两组子节点以及真实 DOM 节点的状态如下：
+
+![](https://res.weread.qq.com/wrepub/CB_3300028078_image00580.jpeg)
+
+此时变量 newStartIdx 的值大于变量 newEndIdx 的值，满足更新停止的条件，于是更新结束。
+
+但此时旧的一组子节点中仍存在未被处理的节点，应该将其移除。因此，需要增加额外的代码来处理它：
+
+```js
+01 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+02   // 省略部分代码
+03 }
+04
+05 if (oldEndIdx < oldStartIdx && newStartIdx <= newEndIdx) {
+06   // 添加新节点
+07   // 省略部分代码
+08 } else if (newEndIdx < newStartIdx && oldStartIdx <= oldEndIdx) {
+09   // 移除操作
+10   for (let i = oldStartIdx; i <= oldEndIdx; i++) {
+11     unmount(oldChildren[i])
+12   }
+13 }
+```
+
+与处理新增节点类似，在 while 循环结束后添加一个 elseif 的分支，用来卸载已不存在的节点。此时，处于 oldStartIdx 和 oldEndIdx 这个区间的节点应该被卸载。
