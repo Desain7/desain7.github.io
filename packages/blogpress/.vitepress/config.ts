@@ -84,9 +84,27 @@ const extraHead: any =
             registrations.forEach(sw => sw.unregister())
           })
         }`
+        ],
+        // live2d
+        [
+          'script',
+          {
+            charset: 'UTF-8',
+            id: 'live2d',
+            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@latest/autoload.js'
+          }
         ]
       ]
-    : []
+    : [
+        [
+          'script',
+          {
+            charset: 'UTF-8',
+            id: 'live2d',
+            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@latest/autoload.js'
+          }
+        ]
+      ]
 
 export default defineConfig({
   extends: blogTheme,
@@ -114,6 +132,7 @@ export default defineConfig({
       'link',
       { rel: 'apple-touch-icon', href: '/favicon.ico', sizes: '180x180' }
     ],
+
     ...extraHead
   ],
   vite: {

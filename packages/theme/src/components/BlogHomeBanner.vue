@@ -5,7 +5,7 @@
       <span class="motto" v-show="motto">{{ motto }}</span>
     </h1>
     <div class="inspiring-wrapper">
-      <h2 @click="changeSlogan" v-show="!!inspiring">{{ inspiring }}</h2>
+      <h2 @click="changeSlogan">{{ inspiring }}</h2>
     </div>
   </div>
 </template>
@@ -117,16 +117,31 @@ h1 {
   }
 }
 
+@keyframes change {
+  0%,
+  40%,
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  60%,
+  80% {
+    filter: blur(80px);
+    opacity: 0;
+  }
+}
+
 .inspiring-wrapper {
   margin: 16px 0;
   height: 24px;
   width: auto;
+  filter: contrast(15);
   h2 {
-    animation: fade-in 0.5s ease-in-out;
     cursor: pointer;
     text-align: center;
     font-size: 20px;
     line-height: 1.6;
+    animation: change 8s infinite ease-in-out;
   }
 }
 </style>

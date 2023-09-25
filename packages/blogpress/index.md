@@ -5,7 +5,7 @@ blog:
  motto: 要从那时起，不再动摇
  pageSize: 8
  # 设置 inspiringTimeout 可以实现自动切换
- inspiringTimeout: 3000
+ inspiringTimeout: 8000
  inspiring: 
     - 千万不要因为走得太久，而忘记了我们为什么出发
     - 无论多么沉重的负担，也不要忘记微笑；无论多么漫长的路程，也不要忘记坚持
