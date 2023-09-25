@@ -155,7 +155,7 @@ export default defineConfig({
     lastUpdatedText: '上次更新于',
     footer: {
       message:
-        '<a target="_blank" href="https://beian.miit.gov.cn/">赣ICP备2022002254号-1</a>',
+        ' <img src="/footer.gif" style="margin: 0 auto;width: 50px;"/><a target="_blank" href="https://beian.miit.gov.cn/">赣ICP备2022002254号-1</a>',
       copyright: '© 2022-present Desain'
     },
     logo: '/logo.png',
