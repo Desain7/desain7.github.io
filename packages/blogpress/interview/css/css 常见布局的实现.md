@@ -211,18 +211,30 @@ categories:
 - 中间栏宽度设置为父元素的宽度，此时其他栏会被挤到下一行
 - 为左右两栏设置 margin 负值，将它们移动到上一行，并利用相对定位将它们定位到两边
 
+```html
+<div class="container">
+  <div class="content"></div>
+  <div class="left-sidebar"></div>
+  <div class="right-sidebar"></div>
+</div>
+```
+
 ```css
+
 .container {
   padding-left: 200px; /* 左侧边栏宽度 */
   padding-right: 250px; /* 右侧边栏宽度 */
+  height: 100vh;
 }
 
 .left-sidebar, .content, .right-sidebar {
   float: left;
+  height: 100vh;
 }
 
 .content {
   width: 100%;
+  background-color: #0af;
 }
 
 .left-sidebar {
@@ -230,6 +242,7 @@ categories:
   margin-left: -100%;
   position: relative;
   left: -200px;
+  background-color: #0fa;
 }
 
 .right-sidebar {
@@ -237,39 +250,60 @@ categories:
   margin-left: -250px;
   position: relative;
   right: -250px;
+  background-color: #fa0;
 }
 ```
 
 5. 双飞翼布局（浮动 + 定位 + 负边距）
 
 :::tip
-双飞翼布局相对于圣杯布局，主要区别在于左右位置的保留是通过中间列的 margin 值来实现的，而不是通过父元素的 padding 来实现的。
+双飞翼布局与圣杯布局的不同之处在于，双飞翼布局的中间 content 部分多了一个子容器存在，通过控制 content 的子容器的 margin 或者 padding 空出左右两列的宽度。
 :::
+
+```html
+<div class="container">
+  <div class="content-container">
+    <div class="content"></div>
+  </div>
+  <div class="left-sidebar"></div>
+  <div class="right-sidebar"></div>
+</div>
+```
+
 
 ```css
 .container {
-  padding: 0 250px; /* 左右侧边栏宽度 */
-  margin: 0 auto; /* 居中 */
+  height: 100vh;
 }
 
-.content {
+.left-sidebar, .content, .right-sidebar {
   float: left;
-  width: 100%;
-}
-
-.left-sidebar, .right-sidebar {
-  float: left;
-  width: 250px; /* 左右侧边栏宽度 */
+  height: 100vh;
 }
 
 .left-sidebar {
   margin-left: -100%;
-  position: relative;
-  left: -250px; /* 左侧边栏宽度的负值 */
+  width: 250px;
+  background: tomato;
 }
 
 .right-sidebar {
-  margin-left: -250px; /* 左右侧边栏宽度的负值 */
+  margin-left: -250px;
+  width: 250px;
+  background: gold;
+}
+
+.content-container {
+  float: left;
+  width: 100%;
+  height: 100vh;
+  background: lightgreen;
+}
+
+/* 与圣杯布局最大的不同，内容区域两边的内容由其中的子元素空出 */
+.content {
+  margin: 0 250px;
+  height: 100vh;
 }
 ```
 
