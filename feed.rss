@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Sun, 24 Sep 2023 10:48:35 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Sep 2023 07:16:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -214,17 +214,25 @@
 <li>中间栏宽度设置为父元素的宽度，此时其他栏会被挤到下一行</li>
 <li>为左右两栏设置 margin 负值，将它们移动到上一行，并利用相对定位将它们定位到两边</li>
 </ul>
-<div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">container</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<div class="language-html"><button title="Copy Code" class="copy"></button><span class="lang">html</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">container</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">content</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">left-sidebar</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">right-sidebar</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #89DDFF">&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span></code></pre>
+</div><div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">container</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">padding-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">200px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 左侧边栏宽度 */</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">padding-right</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 右侧边栏宽度 */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">left-sidebar</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">right-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">float</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> left</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100%</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background-color</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">#</span><span style="color: #A6ACCD">0af</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">left-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
@@ -232,6 +240,7 @@
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-100%</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">position</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> relative</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-200px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background-color</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">#</span><span style="color: #A6ACCD">0fa</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">right-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
@@ -239,36 +248,53 @@
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-250px</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">position</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> relative</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">right</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-250px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background-color</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">#</span><span style="color: #A6ACCD">fa0</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
 </div><ol start="5">
 <li>双飞翼布局（浮动 + 定位 + 负边距）</li>
 </ol>
 <div class="tip custom-block"><p class="custom-block-title">TIP</p>
-<p>双飞翼布局相对于圣杯布局，主要区别在于左右位置的保留是通过中间列的 margin 值来实现的，而不是通过父元素的 padding 来实现的。</p>
+<p>双飞翼布局与圣杯布局的不同之处在于，双飞翼布局的中间 content 部分多了一个子容器存在，通过控制 content 的子容器的 margin 或者 padding 空出左右两列的宽度。</p>
 </div>
-<div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">container</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">padding</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 左右侧边栏宽度 */</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD"> auto</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 居中 */</span></span>
+<div class="language-html"><button title="Copy Code" class="copy"></button><span class="lang">html</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">container</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">content-container</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">content</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">left-sidebar</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">right-sidebar</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
+<span class="line"><span style="color: #89DDFF">&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span></code></pre>
+</div><div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">container</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">left-sidebar</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">right-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">float</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> left</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100%</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">left-sidebar</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">right-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">float</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> left</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 左右侧边栏宽度 */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">left-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-100%</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">position</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> relative</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-250px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 左侧边栏宽度的负值 */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> tomato</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">right-sidebar</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-250px</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">/* 左右侧边栏宽度的负值 */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin-left</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">-250px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> gold</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content-container</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">float</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> left</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">width</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100%</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> lightgreen</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/* 与圣杯布局最大的不同，内容区域两边的内容由其中的子元素空出 */</span></span>
+<span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">content</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">250px</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">height</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">100vh</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
 </div><h2 id="水平垂直居中的实现" tabindex="-1">水平垂直居中的实现 <a class="header-anchor" href="#水平垂直居中的实现" aria-label="Permalink to &quot;水平垂直居中的实现&quot;">&ZeroWidthSpace;</a></h2>
 <ol>
