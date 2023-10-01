@@ -90,8 +90,8 @@ const extraHead: any =
           'script',
           {
             charset: 'UTF-8',
-            id: 'live2d',
-            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@latest/autoload.js'
+            id: 'live',
+            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@0.9.1/autoload.js'
           }
         ]
       ]
@@ -100,8 +100,8 @@ const extraHead: any =
           'script',
           {
             charset: 'UTF-8',
-            id: 'live2d',
-            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@latest/autoload.js'
+            id: 'live',
+            src: 'https://fastly.jsdelivr.net/gh/Desain7/live2d-widget@0.9.1/autoload.js'
           }
         ]
       ]
