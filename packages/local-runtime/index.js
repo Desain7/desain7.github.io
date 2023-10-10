@@ -1,49 +1,25 @@
-const pro = Promise.all([1, Promise.resolve(3), 10]).then(
-  (val) => {
-    console.log(val)
-  },
-  (reason) => {
-    console.log(reason)
-  }
-)
+const urlData =
+  'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&enabled'
 
-/**
- *
- * @param {any} obj 对象
- * @returns 该对象是否是 thenable 的， 从而判断是否是一个 promise 对象
- */
-function isThenable(obj) {
-  if ((typeof obj === 'object' && obj !== null) || typeof obj === 'function') {
-    if (typeof obj.then === 'function') {
-      return true
+const getParams = (url) => {
+  const queryString = url.split('?')[1]
+  const paramsArray = queryString.split('&')
+  const paramsObj = {}
+  paramsArray.forEach((param) => {
+    const [key, value] = param.split('=')
+    if (!paramsObj[decodeURIComponent(key)]) {
+      paramsObj[decodeURIComponent(key)] = decodeURIComponent(value)
+    } else {
+      paramsObj[decodeURIComponent(key)] = [].concat(
+        paramsObj[decodeURIComponent(key)],
+        decodeURIComponent(value)
+      )
     }
-  }
-  return false
-}
-
-const myAll = (Promises) => {
-  return new Promise((resolve, reject) => {
-    let count = 0
-    const arr = []
-    Promises.forEach((item) => {
-      if (isThenable(item)) {
-        item.then((value) => {
-          arr[count++] = value
-          if (count === Promises.length - 1) {
-            resolve(arr)
-          }
-        }, reject)
-      } else {
-        arr[count++] = item
-        if (count === Promises.length - 1) {
-          resolve(arr)
-        }
-      }
-    })
+    if (!value) {
+      paramsObj[decodeURIComponent(key)] = true
+    }
   })
+  return paramsObj
 }
 
-myAll([1, Promise.resolve(3), 10]).then(
-  (val) => console.log(val),
-  (res) => console.log(res)
-)
+console.log(getParams(urlData))
