@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Tue, 10 Oct 2023 15:26:07 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 14 Oct 2023 07:52:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,64 @@
             <link>https://desain7.top</link>
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
+        <item>
+            <title><![CDATA[手写发布订阅模式]]></title>
+            <link>https://desain7.top/coding/js/手写发布订阅模式.html</link>
+            <guid>https://desain7.top/coding/js/手写发布订阅模式.html</guid>
+            <pubDate>Tue, 10 Oct 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[ 什么是发布订阅模式？
+发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。
+- 订阅者（Subscriber）把自己想订阅的事件注册（S]]></description>
+            <content:encoded><![CDATA[<h1 id="手写发布订阅模式" tabindex="-1">手写发布订阅模式 <a class="header-anchor" href="#手写发布订阅模式" aria-label="Permalink to &quot;手写发布订阅模式&quot;">&ZeroWidthSpace;</a></h1>
+<h2 id="什么是发布订阅模式" tabindex="-1">什么是发布订阅模式？ <a class="header-anchor" href="#什么是发布订阅模式" aria-label="Permalink to &quot;什么是发布订阅模式？&quot;">&ZeroWidthSpace;</a></h2>
+<p>发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。</p>
+<ul>
+<li><strong>订阅者</strong>（Subscriber）把自己想订阅的事件<strong>注册</strong>（Subscribe）到调度中心（Event Channel）;</li>
+<li>当<strong>发布者</strong>（Publisher）<strong>发布</strong>该事件（Publish Event）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。</li>
+</ul>
+<h2 id="发布订阅模式的实现" tabindex="-1">发布订阅模式的实现 <a class="header-anchor" href="#发布订阅模式的实现" aria-label="Permalink to &quot;发布订阅模式的实现&quot;">&ZeroWidthSpace;</a></h2>
+<ol>
+<li>首先创建一个调度中心的类及它的构造器</li>
+</ol>
+<p>使用对象作为事件容器，当同一个事件存在多个订阅者时，使用数组存放。</p>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">EventCenter</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 事件容器，用于存放事件数组</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{};</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="2">
+<li>添加订阅事件方法</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 订阅事件</span></span>
+<span class="line"><span style="color: #82AAFF">on</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> callback) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 创建数组容器</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">] </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> [</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">]</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 向数组容器中添加事件</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">push</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="3">
+<li>添加事件触发方法</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 触发事件</span></span>
+<span class="line"><span style="color: #82AAFF">emit</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">...</span><span style="color: #A6ACCD">args) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 判断是否存在事件</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">map</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">callback</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">      </span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="4">
+<li></li>
+</ol>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[什么是 WebSocket？]]></title>
             <link>https://desain7.top/interview/计算机网络/什么是WebSocket？.html</link>
@@ -2071,12 +2129,42 @@ const oldVNode = {
             <pubDate>Wed, 13 Sep 2023 16:00:00 GMT</pubDate>
             <description><![CDATA[ 循环打印红黄绿
 红灯 3s 亮一次，绿灯 1s 亮一次，黄灯 2s 亮一次；如何让三个灯不断交替重复亮灯？
- 实现每隔一秒打印 1,2,3,4]]></description>
+ 实现每隔一秒打印 1,2,3,4
+ 寻找文章出出现频率最高的单词
+```js
+funct]]></description>
             <content:encoded><![CDATA[<h1 id="常见的场景类问题" tabindex="-1">常见的场景类问题 <a class="header-anchor" href="#常见的场景类问题" aria-label="Permalink to &quot;常见的场景类问题&quot;">&ZeroWidthSpace;</a></h1>
 <h2 id="循环打印红黄绿" tabindex="-1">循环打印红黄绿 <a class="header-anchor" href="#循环打印红黄绿" aria-label="Permalink to &quot;循环打印红黄绿&quot;">&ZeroWidthSpace;</a></h2>
 <p>红灯 3s 亮一次，绿灯 1s 亮一次，黄灯 2s 亮一次；如何让三个灯不断交替重复亮灯？</p>
 <h2 id="实现每隔一秒打印-1-2-3-4" tabindex="-1">实现每隔一秒打印 1,2,3,4 <a class="header-anchor" href="#实现每隔一秒打印-1-2-3-4" aria-label="Permalink to &quot;实现每隔一秒打印 1,2,3,4&quot;">&ZeroWidthSpace;</a></h2>
-]]></content:encoded>
+<h2 id="寻找文章出出现频率最高的单词" tabindex="-1">寻找文章出出现频率最高的单词 <a class="header-anchor" href="#寻找文章出出现频率最高的单词" aria-label="Permalink to &quot;寻找文章出出现频率最高的单词&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">findMostWord</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">article</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 合法性判断</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #89DDFF">!</span><span style="color: #A6ACCD">article</span><span style="color: #F07178">) </span><span style="color: #89DDFF; font-style: italic">return</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 参数处理</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #A6ACCD">article</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">article</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">trim</span><span style="color: #F07178">()</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">toLowerCase</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">wordList</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">article</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">match</span><span style="color: #F07178">(</span><span style="color: #89DDFF">/[</span><span style="color: #C3E88D">a-z</span><span style="color: #89DDFF">]+/</span><span style="color: #F78C6C">g</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">visited</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> []</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">let</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">maxNum</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #F78C6C">0</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">let</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">maxWord</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;&#39;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #A6ACCD">article</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">`</span><span style="color: #C3E88D"> </span><span style="color: #89DDFF">${</span><span style="color: #A6ACCD">wordList</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">join</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">  </span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">}</span><span style="color: #C3E88D"> </span><span style="color: #89DDFF">`</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">article</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 遍历判断单词出现次数</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #A6ACCD">wordList</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">forEach</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">item</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #A6ACCD">visited</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">indexOf</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">item</span><span style="color: #F07178">) </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178"> </span><span style="color: #F78C6C">0</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">      </span><span style="color: #676E95; font-style: italic">// 加入 visited</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #A6ACCD">visited</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">push</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">item</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">word</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #82AAFF">RegExp</span><span style="color: #F07178">(</span><span style="color: #89DDFF">`</span><span style="color: #C3E88D"> </span><span style="color: #89DDFF">${</span><span style="color: #A6ACCD">item</span><span style="color: #89DDFF">}</span><span style="color: #C3E88D"> </span><span style="color: #89DDFF">`</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">g</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">num</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">article</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">match</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">word</span><span style="color: #F07178">)</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">length</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #A6ACCD">num</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&gt;</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">maxNum</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">        </span><span style="color: #A6ACCD">maxNum</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">num</span></span>
+<span class="line"><span style="color: #F07178">        </span><span style="color: #A6ACCD">maxWord</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">item</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">`${</span><span style="color: #A6ACCD">maxWord</span><span style="color: #89DDFF">}</span><span style="color: #C3E88D">  </span><span style="color: #89DDFF">${</span><span style="color: #A6ACCD">maxNum</span><span style="color: #89DDFF">}`</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Vue 中的双向数据绑定]]></title>
