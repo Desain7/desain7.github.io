@@ -1,25 +1,31 @@
-const urlData =
-  'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&enabled'
-
-const getParams = (url) => {
-  const queryString = url.split('?')[1]
-  const paramsArray = queryString.split('&')
-  const paramsObj = {}
-  paramsArray.forEach((param) => {
-    const [key, value] = param.split('=')
-    if (!paramsObj[decodeURIComponent(key)]) {
-      paramsObj[decodeURIComponent(key)] = decodeURIComponent(value)
-    } else {
-      paramsObj[decodeURIComponent(key)] = [].concat(
-        paramsObj[decodeURIComponent(key)],
-        decodeURIComponent(value)
-      )
-    }
-    if (!value) {
-      paramsObj[decodeURIComponent(key)] = true
+function findMostWord(article) {
+  // 合法性判断
+  if (!article) return
+  // 参数处理
+  article = article.trim().toLowerCase()
+  const wordList = article.match(/[a-z]+/g)
+  const visited = []
+  let maxNum = 0
+  let maxWord = ''
+  article = ` ${wordList.join('  ')} `
+  console.log(article)
+  // 遍历判断单词出现次数
+  wordList.forEach((item) => {
+    if (visited.indexOf(item) < 0) {
+      // 加入 visited
+      visited.push(item)
+      const word = new RegExp(` ${item} `, 'g')
+      const num = article.match(word).length
+      if (num > maxNum) {
+        maxNum = num
+        maxWord = item
+      }
     }
   })
-  return paramsObj
+  return `${maxWord}  ${maxNum}`
 }
 
-console.log(getParams(urlData))
+const arti =
+  'lorem, ipsum dolor sit amet consectetur adipiscing elit ipsum sit sit sit'
+
+console.log(findMostWord(arti))
