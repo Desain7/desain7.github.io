@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Sat, 21 Oct 2023 09:25:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Oct 2023 00:10:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -4538,7 +4538,8 @@ call 方法接受的参数是作为函数调用时的参数一一传递的，通
 <span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF">}</span></span>
 <span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span></code></pre>
-</div><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+</div><h2 id="promise-实例上的方法" tabindex="-1">Promise 实例上的方法 <a class="header-anchor" href="#promise-实例上的方法" aria-label="Permalink to &quot;Promise 实例上的方法&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD"> </span></span>
 <span class="line"><span style="color: #A6ACCD"> </span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">catch</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">onRejected</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
