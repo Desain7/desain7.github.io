@@ -169,6 +169,8 @@ class Promise {
   }
   ```
 
+## Promise 实例上的方法
+
 ```js
 class Promise {
  
