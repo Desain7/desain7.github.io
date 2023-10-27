@@ -78,6 +78,7 @@ greet.apply(person, ['Hello', '!']);
 Function.prototype.myCall = function (ctx, ...args) {
   const fn = Symbol('fn')
   // 若传入的对象为空，则使用 window 对象
+  ctx = ctx || window;
   ctx[fn] = this
   const res = ctx[fn](...args)
   delete ctx[fn]
@@ -91,20 +92,20 @@ Function.prototype.myCall = function (ctx, ...args) {
 具体实现和 call 方法类似
 
 ```js
-Function.prototype.myApply = function (context, argsArray) {
+Function.prototype.myApply = function (ctx, args) {
   const fn = Symbol('fn');
-  context = context || window;
-  context[fn] = this;
+  ctx = ctx || window;
+  ctx[fn] = this;
 
   let result;
-  if (Array.isArray(argsArray)) {
-    result = context[fn](...argsArray);
+  if (Array.isArray(args)) {
+    result = ctx[fn](...args);
   } else {
     // 如果传给 apply 方法的第二个参数不是数组或类数组对象，那么就直接执行函数
-    result = context[fn]();
+    result = ctx[fn]();
   }
 
-  delete context[fn];
+  delete ctx[fn];
 
   return result;
 };

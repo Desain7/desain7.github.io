@@ -1,9 +1,17 @@
 const obj = {
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3'
+  name: 'John',
+  age: 30
 }
 
-delete obj.key2
+const proxy = new Proxy(obj, {
+  get(target, property) {
+    console.log(`Getting property: ${property}`)
+    return target[property]
+  }
+})
 
-console.log(obj) // { key1: 'value1', key3: 'value3' }
+console.log(obj.name) // 输出: Getting property: name
+//      John
+
+console.log(proxy.age) // 输出: Getting property: age
+//      30
