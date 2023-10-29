@@ -8,6 +8,7 @@ tags:
 categories:
  - 手撕代码
 ---
+
 # Promise 周边场景题
 
 ## 使用 setInterval 实现 setTimeout
@@ -251,3 +252,22 @@ new Queue()
   .start()
 ```
 
+## 每隔三秒输出时间
+
+```js
+const time = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(new Date())
+      resolve('time')
+    }, 3000)
+  })
+}
+
+const outputTime = async () => {
+  await time()
+  outputTime()
+}
+
+outputTime()
+```
