@@ -4,7 +4,7 @@
         <title>Desain</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Sat, 28 Oct 2023 15:29:26 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Oct 2023 06:18:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,14 @@
             <link>https://desain7.top</link>
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
+        <item>
+            <title><![CDATA[JS 常考手写题]]></title>
+            <link>https://desain7.top/coding/js/JS常考手写题.html</link>
+            <guid>https://desain7.top/coding/js/JS常考手写题.html</guid>
+            <pubDate>Sat, 28 Oct 2023 16:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="js-常考手写题" tabindex="-1">JS 常考手写题 <a class="header-anchor" href="#js-常考手写题" aria-label="Permalink to &quot;JS 常考手写题&quot;">&ZeroWidthSpace;</a></h1>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Promise 周边场景题]]></title>
             <link>https://desain7.top/coding/js/Promise 周边场景题.html</link>
@@ -217,6 +225,22 @@ const timer = setInterval(() =
 <span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #F78C6C">3</span><span style="color: #F07178">)</span></span>
 <span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">start</span><span style="color: #A6ACCD">()</span></span></code></pre>
+</div><h2 id="每隔三秒输出时间" tabindex="-1">每隔三秒输出时间 <a class="header-anchor" href="#每隔三秒输出时间" aria-label="Permalink to &quot;每隔三秒输出时间&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> time </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">resolve</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD; font-style: italic">reject</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">setTimeout</span><span style="color: #F07178">(</span><span style="color: #89DDFF">()</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #82AAFF">Date</span><span style="color: #F07178">())</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #82AAFF">resolve</span><span style="color: #F07178">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">time</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">},</span><span style="color: #F07178"> </span><span style="color: #F78C6C">3000</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> outputTime </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">async</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">await</span><span style="color: #F07178"> </span><span style="color: #82AAFF">time</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #82AAFF">outputTime</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #82AAFF">outputTime</span><span style="color: #A6ACCD">()</span></span></code></pre>
 </div>]]></content:encoded>
         </item>
         <item>
