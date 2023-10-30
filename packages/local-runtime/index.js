@@ -1,17 +1,15 @@
-// 每隔三秒输出时间
+const arr1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+const arr2 = ['A', 'B', 'C']
 
-const time = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log(new Date())
-      resolve('time')
-    }, 3000)
+// Set 实现
+function mergeArr1(arr1, arr2) {
+  return [...new Set([...arr1, ...arr2])]
+}
+// Filter 实现
+function mergeArr2(arr1, arr2) {
+  return [...arr1, ...arr2].filter((item, index, arr) => {
+    return arr.indexOf(item) === index
   })
 }
 
-const outputTime = async () => {
-  await time()
-  outputTime()
-}
-
-outputTime()
+console.log(mergeArr1(arr1, arr2), mergeArr2(arr1, arr2))
