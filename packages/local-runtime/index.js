@@ -1,15 +1,14 @@
-const arr1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
-const arr2 = ['A', 'B', 'C']
+const arr = [1, 2, [3, 4, [5, 6]], 7]
 
-// Set 实现
-function mergeArr1(arr1, arr2) {
-  return [...new Set([...arr1, ...arr2])]
-}
-// Filter 实现
-function mergeArr2(arr1, arr2) {
-  return [...arr1, ...arr2].filter((item, index, arr) => {
-    return arr.indexOf(item) === index
-  })
+const result1 = arr.flat(Infinity)
+
+const myFlat = (arr, depth = 1) => {
+  if (depth === 0) return arr
+  return arr.reduce((pre, cur) => {
+    return pre.concat(Array.isArray(cur) ? myFlat(cur, depth - 1) : cur)
+  }, [])
 }
 
-console.log(mergeArr1(arr1, arr2), mergeArr2(arr1, arr2))
+const result2 = myFlat(arr, Infinity)
+
+console.log(result1, result2)
