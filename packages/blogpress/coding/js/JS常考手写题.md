@@ -414,4 +414,15 @@ function mergeArr2(arr1, arr2) {
 }
 ```
 
-## 多维数组全排列
+## 数据类型
+
+```js
+const getType = (target) => {
+  if (typeof target !== 'object') {
+    // 基础数据类型直接返回
+    return typeof target
+  }
+  // 引用类型获取具体类型
+  return Object.prototype.toString.call(target).slice(8, -1)
+}
+```

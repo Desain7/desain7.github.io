@@ -1,14 +1,23 @@
-const arr = [1, 2, [3, 4, [5, 6]], 7]
-
-const result1 = arr.flat(Infinity)
-
-const myFlat = (arr, depth = 1) => {
-  if (depth === 0) return arr
-  return arr.reduce((pre, cur) => {
-    return pre.concat(Array.isArray(cur) ? myFlat(cur, depth - 1) : cur)
-  }, [])
+/**
+ *
+ * @param {*} fn 回调函数
+ * @param {*} times 重试次数
+ * @param {*} timeout 超时时间
+ * @param {*} cache 缓存内容
+ */
+Promise.retry = function (fn, times, timeout, cache = null) {
+  return new Promise((resolve, reject) => {
+    const retry = () => {
+      fn.then((res) => {
+        resolve(res)
+      }).catch((reason) => {
+        if (times > 0) {
+          times--
+          setTimeout(retry, timeout)
+        } else {
+          resolve(cache)
+        }
+      })
+    }
+  })
 }
-
-const result2 = myFlat(arr, Infinity)
-
-console.log(result1, result2)
