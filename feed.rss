@@ -1,19 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Desain</title>
+        <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Mon, 11 Dec 2023 06:58:44 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Dec 2023 07:30:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
         <image>
-            <title>Desain</title>
+            <title>Desain &amp;&amp; Blog</title>
             <url>http://oss.desain7.top/pic94500053.jpg</url>
             <link>https://desain7.top</link>
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
+        <item>
+            <title><![CDATA[ref 和 reactive 有什么区别？]]></title>
+            <link>https://desain7.top/frontend/vue/ref和reactive有什么区别？.html</link>
+            <guid>https://desain7.top/frontend/vue/ref和reactive有什么区别？.html</guid>
+            <pubDate>Sun, 10 Dec 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[语法上：
+- ref 接受一个初始值作为参数，并返回一个包装了响应式数据的引用对象。
+- reactive 接受一个普通对象作为参数，并返回一个响应式代理对象。
+- ref 主要用于包装基本类型数据，]]></description>
+            <content:encoded><![CDATA[<h1 id="ref-和-reactive-有什么区别" tabindex="-1">ref 和 reactive 有什么区别？ <a class="header-anchor" href="#ref-和-reactive-有什么区别" aria-label="Permalink to &quot;ref 和 reactive 有什么区别？&quot;">&ZeroWidthSpace;</a></h1>
+<p><strong>语法上：</strong></p>
+<ul>
+<li>
+<p>ref 接受一个初始值作为参数，并返回一个包装了响应式数据的引用对象。</p>
+</li>
+<li>
+<p>reactive 接受一个普通对象作为参数，并返回一个响应式代理对象。</p>
+</li>
+<li>
+<p>ref 主要用于包装基本类型数据，而 reactive 用于包装对象类型数据。</p>
+</li>
+</ul>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// ref</span></span>
+<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> count </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">ref</span><span style="color: #A6ACCD">(</span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(count</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">value) </span><span style="color: #676E95; font-style: italic">// 0</span></span>
+<span class="line"><span style="color: #A6ACCD">​</span></span>
+<span class="line"><span style="color: #A6ACCD">count</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">value</span><span style="color: #89DDFF">++</span></span>
+<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(count</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">value) </span><span style="color: #676E95; font-style: italic">// 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// reactive</span></span>
+<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> obj </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">reactive</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">{</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">count</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">obj</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">count</span><span style="color: #89DDFF">++</span></span></code></pre>
+</div><p><strong>实现上：</strong></p>
+<ul>
+<li>ref</li>
+</ul>
+<ol>
+<li>ref 使用了一个名为 RefImpl 的类来表示响应式数据。这个类内部有一个 _value 属性，用于保存具体的值。</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">RefImpl</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">value</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">_value</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">value</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">get</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">value</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 在读取值时，触发依赖收集，追踪该响应式数据的依赖关系</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">track</span><span style="color: #F07178">(</span><span style="color: #89DDFF">this,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">TrackOpTypes</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">GET</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">value</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">_value</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">set</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">value</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">newValue</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 在修改值时，更新内部的值，并触发依赖更新</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">_value</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">newValue</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">trigger</span><span style="color: #F07178">(</span><span style="color: #89DDFF">this,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">TriggerOpTypes</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">SET</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">value</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">newValue</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="2">
+<li>通过调用 ref 函数创建的响应式引用对象实际上是 RefImpl 类的实例，其 _value 属性保存传入的初始值。</li>
+<li>当访问响应式引用对象的值时，实际上是访问了 _value 属性。而当修改值时，会更新 _value 属性，并触发依赖更新。</li>
+</ol>
+<ul>
+<li>
+<p>reactive</p>
+</li>
+<li>
+<p>reactive 使用了 Vue 3 的 Proxy 和 Reflect 特性来创建响应式代理对象。</p>
+</li>
+<li>
+<p>当调用 reactive 函数时，会将传入的普通对象转换为响应式代理对象。这个代理对象会拦截对对象属性的访问和修改操作，并触发依赖更新。</p>
+</li>
+<li>
+<p>在代理对象的内部，Proxy 通过 get 拦截器来监听对属性的访问操作，set 拦截器来监听对属性的修改操作，并通过 Reflect 来实际读取和写入属性值。</p>
+</li>
+</ul>
+<p><strong>使用上：</strong></p>
+<ul>
+<li>
+<p>ref 返回的响应式数据在 JS 中使用需要加上 .value 才能访问其值，在视图中使用会自动脱 ref，不需要 .value。</p>
+</li>
+<li>
+<p>ref 同样可以接收对象或数组等非原始值，但内部依然是使用 reactive 实现响应式。</p>
+</li>
+<li>
+<p>reactive 内部如果接收的是一个 Ref 对象会自动脱 ref。</p>
+</li>
+<li>
+<p>使用展开运算符(...)展开 reactive 返回的响应式对象会使其失去响应性，可以结合 toRefs() 将值转换为Ref对象之后再展开。</p>
+</li>
+</ul>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Vue 中有哪些性能优化？]]></title>
             <link>https://desain7.top/frontend/vue/vue中有哪些性能优化？.html</link>
@@ -190,11 +281,10 @@ Vue2 时期，由于 v-for]]></description>
             <guid>https://desain7.top/coding/css/css 手写题.html</guid>
             <pubDate>Tue, 07 Nov 2023 16:00:00 GMT</pubDate>
             <description><![CDATA[ 选择器选择到第1第2个div，倒数第1倒数第2个div
-选择器选择div中的div,不知道内层有多少个div，尽可能多种方法实现选择器选择到第1第2个div，倒数第1倒数第2个div
-```html]]></description>
+使用选择器去选择 div 中的 div,不知道内层有多少个 div，尽可能多种方法实现，让选择器选择到第 1、第 2 个div，倒数第 1、倒]]></description>
             <content:encoded><![CDATA[<h1 id="css-手写题" tabindex="-1">css 手写题 <a class="header-anchor" href="#css-手写题" aria-label="Permalink to &quot;css 手写题&quot;">&ZeroWidthSpace;</a></h1>
 <h2 id="选择器选择到第1第2个div-倒数第1倒数第2个div" tabindex="-1">选择器选择到第1第2个div，倒数第1倒数第2个div <a class="header-anchor" href="#选择器选择到第1第2个div-倒数第1倒数第2个div" aria-label="Permalink to &quot;选择器选择到第1第2个div，倒数第1倒数第2个div&quot;">&ZeroWidthSpace;</a></h2>
-<p>选择器选择div中的div,不知道内层有多少个div，尽可能多种方法实现选择器选择到第1第2个div，倒数第1倒数第2个div</p>
+<p>使用选择器去选择 div 中的 div,不知道内层有多少个 div，尽可能多种方法实现，让选择器选择到第 1、第 2 个div，倒数第 1、倒数第 2 个div</p>
 <div class="language-html"><button title="Copy Code" class="copy"></button><span class="lang">html</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">container</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">cell</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">cell</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
@@ -204,7 +294,8 @@ Vue2 时期，由于 v-for]]></description>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">cell</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #89DDFF">&lt;</span><span style="color: #F07178">div</span><span style="color: #89DDFF"> </span><span style="color: #C792EA">class</span><span style="color: #89DDFF">=</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">cell</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">&gt;&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span>
 <span class="line"><span style="color: #89DDFF">&lt;/</span><span style="color: #F07178">div</span><span style="color: #89DDFF">&gt;</span></span></code></pre>
-</div><div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/*法一 :nth-child() */</span></span>
+</div><h3 id="css-实现" tabindex="-1">CSS 实现 <a class="header-anchor" href="#css-实现" aria-label="Permalink to &quot;CSS 实现&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/*法一 :nth-child() */</span></span>
 <span class="line"><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">cell</span><span style="color: #89DDFF">:</span><span style="color: #C792EA">nth-child</span><span style="color: #89DDFF">(</span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">),</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">cell</span><span style="color: #89DDFF">:</span><span style="color: #C792EA">nth-child</span><span style="color: #89DDFF">(</span><span style="color: #F78C6C">2</span><span style="color: #89DDFF">),</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">cell</span><span style="color: #89DDFF">:</span><span style="color: #C792EA">nth-last-child</span><span style="color: #89DDFF">(</span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">),</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">.</span><span style="color: #FFCB6B">cell</span><span style="color: #89DDFF">:</span><span style="color: #C792EA">nth-last-child</span><span style="color: #89DDFF">(</span><span style="color: #F78C6C">2</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">background-color</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">#</span><span style="color: #A6ACCD">0af</span><span style="color: #89DDFF">;</span></span>
 <span class="line"></span>
@@ -222,7 +313,8 @@ Vue2 时期，由于 v-for]]></description>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">margin</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">10px</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #A6ACCD">  </span><span style="color: #B2CCD6">border</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1px</span><span style="color: #A6ACCD"> solid black</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 法三: js 实现</span></span>
+</div><h3 id="js-实现" tabindex="-1">JS 实现 <a class="header-anchor" href="#js-实现" aria-label="Permalink to &quot;JS 实现&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 法三: js 实现</span></span>
 <span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> elements </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> document</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">querySelectorAll</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">.cell</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span></span>
 <span class="line"><span style="color: #A6ACCD">elements[</span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD">]</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">style</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">backgroundColor </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">pink</span><span style="color: #89DDFF">&#39;</span></span>
 <span class="line"><span style="color: #A6ACCD">elements[</span><span style="color: #F78C6C">1</span><span style="color: #A6ACCD">]</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">style</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">backgroundColor </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">pink</span><span style="color: #89DDFF">&#39;</span></span>
