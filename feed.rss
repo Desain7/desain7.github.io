@@ -4,7 +4,7 @@
         <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Mon, 11 Dec 2023 07:30:24 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Dec 2023 07:32:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -22,20 +22,14 @@
             <description><![CDATA[语法上：
 - ref 接受一个初始值作为参数，并返回一个包装了响应式数据的引用对象。
 - reactive 接受一个普通对象作为参数，并返回一个响应式代理对象。
-- ref 主要用于包装基本类型数据，]]></description>
+ref 主要用于包装基本类型数据，而 ]]></description>
             <content:encoded><![CDATA[<h1 id="ref-和-reactive-有什么区别" tabindex="-1">ref 和 reactive 有什么区别？ <a class="header-anchor" href="#ref-和-reactive-有什么区别" aria-label="Permalink to &quot;ref 和 reactive 有什么区别？&quot;">&ZeroWidthSpace;</a></h1>
 <p><strong>语法上：</strong></p>
 <ul>
-<li>
-<p>ref 接受一个初始值作为参数，并返回一个包装了响应式数据的引用对象。</p>
-</li>
-<li>
-<p>reactive 接受一个普通对象作为参数，并返回一个响应式代理对象。</p>
-</li>
-<li>
-<p>ref 主要用于包装基本类型数据，而 reactive 用于包装对象类型数据。</p>
-</li>
+<li>ref 接受一个初始值作为参数，并返回一个包装了响应式数据的引用对象。</li>
+<li>reactive 接受一个普通对象作为参数，并返回一个响应式代理对象。</li>
 </ul>
+<p>ref 主要用于包装基本类型数据，而 reactive 用于包装对象类型数据。</p>
 <div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// ref</span></span>
 <span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> count </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">ref</span><span style="color: #A6ACCD">(</span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD">)</span></span>
 <span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(count</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">value) </span><span style="color: #676E95; font-style: italic">// 0</span></span>
@@ -75,19 +69,13 @@
 <li>当访问响应式引用对象的值时，实际上是访问了 _value 属性。而当修改值时，会更新 _value 属性，并触发依赖更新。</li>
 </ol>
 <ul>
-<li>
-<p>reactive</p>
-</li>
-<li>
-<p>reactive 使用了 Vue 3 的 Proxy 和 Reflect 特性来创建响应式代理对象。</p>
-</li>
-<li>
-<p>当调用 reactive 函数时，会将传入的普通对象转换为响应式代理对象。这个代理对象会拦截对对象属性的访问和修改操作，并触发依赖更新。</p>
-</li>
-<li>
-<p>在代理对象的内部，Proxy 通过 get 拦截器来监听对属性的访问操作，set 拦截器来监听对属性的修改操作，并通过 Reflect 来实际读取和写入属性值。</p>
-</li>
+<li>reactive</li>
 </ul>
+<ol>
+<li>reactive 使用了 Vue 3 的 Proxy 和 Reflect 特性来创建响应式代理对象。</li>
+<li>当调用 reactive 函数时，会将传入的普通对象转换为响应式代理对象。这个代理对象会拦截对对象属性的访问和修改操作，并触发依赖更新。</li>
+<li>在代理对象的内部，Proxy 通过 get 拦截器来监听对属性的访问操作，set 拦截器来监听对属性的修改操作，并通过 Reflect 来实际读取和写入属性值。</li>
+</ol>
 <p><strong>使用上：</strong></p>
 <ul>
 <li>
