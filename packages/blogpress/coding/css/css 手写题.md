@@ -13,7 +13,7 @@ categories:
 
 ## 选择器选择到第1第2个div，倒数第1倒数第2个div
 
-选择器选择div中的div,不知道内层有多少个div，尽可能多种方法实现选择器选择到第1第2个div，倒数第1倒数第2个div
+使用选择器去选择 div 中的 div,不知道内层有多少个 div，尽可能多种方法实现，让选择器选择到第 1、第 2 个div，倒数第 1、倒数第 2 个div
 
 ```html
 <div class="container">
@@ -26,6 +26,8 @@ categories:
   <div class="cell"></div>
 </div>
 ```
+
+### CSS 实现
 
 ```css
 /*法一 :nth-child() */
@@ -47,6 +49,8 @@ categories:
   border: 1px solid black;
 }
 ```
+
+### JS 实现
 
 ```js
 // 法三: js 实现

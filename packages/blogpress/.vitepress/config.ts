@@ -4,7 +4,7 @@ import type { Theme } from '@desain/theme'
 
 const baseUrl = 'https://desain7.top'
 const RSS: Theme.RSSOptions = {
-  title: 'Desain',
+  title: 'Desain && Blog',
   baseUrl,
   description: '要从那时起，不再动摇（前端相关技术分享）',
   id: baseUrl,
@@ -110,7 +110,7 @@ export default defineConfig({
   extends: blogTheme,
   ignoreDeadLinks: true,
   lang: 'zh-CN',
-  title: 'Desain',
+  title: 'Blog of Desain',
   base: '/',
   description:
     'Desain的个人博客，记录学习笔记，前端相关知识，高频面试题，个人面经等',
