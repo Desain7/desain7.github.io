@@ -4,7 +4,7 @@
         <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Mon, 11 Dec 2023 07:32:35 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Dec 2023 15:12:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,24 @@
             <link>https://desain7.top</link>
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
+        <item>
+            <title><![CDATA[Vue 中的响应式原理]]></title>
+            <link>https://desain7.top/frontend/vue/Vue 中的响应式原理.html</link>
+            <guid>https://desain7.top/frontend/vue/Vue 中的响应式原理.html</guid>
+            <pubDate>Mon, 11 Dec 2023 16:00:00 GMT</pubDate>
+            <description><![CDATA[ 什么是响应式原理？
+ 为什么 Vue 需要响应式？
+ 响应式能带来什么好处？
+ Vue 中的响应式是什么实现的？有哪些优缺点？
+ Vue3 中的响应式有什么变化？]]></description>
+            <content:encoded><![CDATA[<h1 id="vue-中的响应式原理" tabindex="-1">Vue 中的响应式原理 <a class="header-anchor" href="#vue-中的响应式原理" aria-label="Permalink to &quot;Vue 中的响应式原理&quot;">&ZeroWidthSpace;</a></h1>
+<h2 id="什么是响应式原理" tabindex="-1">什么是响应式原理？ <a class="header-anchor" href="#什么是响应式原理" aria-label="Permalink to &quot;什么是响应式原理？&quot;">&ZeroWidthSpace;</a></h2>
+<h2 id="为什么-vue-需要响应式" tabindex="-1">为什么 Vue 需要响应式？ <a class="header-anchor" href="#为什么-vue-需要响应式" aria-label="Permalink to &quot;为什么 Vue 需要响应式？&quot;">&ZeroWidthSpace;</a></h2>
+<h2 id="响应式能带来什么好处" tabindex="-1">响应式能带来什么好处？ <a class="header-anchor" href="#响应式能带来什么好处" aria-label="Permalink to &quot;响应式能带来什么好处？&quot;">&ZeroWidthSpace;</a></h2>
+<h2 id="vue-中的响应式是什么实现的-有哪些优缺点" tabindex="-1">Vue 中的响应式是什么实现的？有哪些优缺点？ <a class="header-anchor" href="#vue-中的响应式是什么实现的-有哪些优缺点" aria-label="Permalink to &quot;Vue 中的响应式是什么实现的？有哪些优缺点？&quot;">&ZeroWidthSpace;</a></h2>
+<h2 id="vue3-中的响应式有什么变化" tabindex="-1">Vue3 中的响应式有什么变化？ <a class="header-anchor" href="#vue3-中的响应式有什么变化" aria-label="Permalink to &quot;Vue3 中的响应式有什么变化？&quot;">&ZeroWidthSpace;</a></h2>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[ref 和 reactive 有什么区别？]]></title>
             <link>https://desain7.top/frontend/vue/ref和reactive有什么区别？.html</link>
