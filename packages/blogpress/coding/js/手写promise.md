@@ -19,7 +19,7 @@ categories:
 * Promise 的三种状态
   * pending（等待）: 初始状态，没有完成，也没有被拒绝
   * resolved（完成）: 表示操作成功完成
-  * rejectde（拒绝）: 表示操作失败
+  * rejected（拒绝）: 表示操作失败
 
 ```js
 const PENDING = "PENDING"; // 进行中
@@ -136,7 +136,7 @@ class Promise {
               // 不同点：此时是reject
               result instanceof Promise
                 ? result.then(resolve, reject)
-                : resolve(result);
+                : reject(result);
             });
           } catch (e) {
             reject(e);

@@ -1,4 +1,19 @@
-ƒ anonymous(
-) {
-  with (this) { return _c('div', { attrs: { "id": "app" } }, _l((items), function (item) { return (item.isActive) ? _c('div', { key: item.id }, [_v("\n      " + _s(item.name) + "\n    ")]) : _e() }), 0) }
+const Obj = function () {
+  this.a = 12
 }
+
+Obj.prototype.c = 2
+
+const obj = new Obj()
+
+obj.b = 1
+
+function iterate(obj) {
+  const res = []
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) res.push(`${key}: ${obj[key]}`)
+  }
+  return res
+}
+
+console.log(obj.hasOwnProperty(c))
