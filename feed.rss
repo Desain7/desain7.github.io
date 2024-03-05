@@ -4,7 +4,7 @@
         <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Tue, 19 Dec 2023 14:40:33 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Mar 2024 14:22:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -5849,7 +5849,7 @@ call 方法接受的参数是作为函数调用时的参数一一传递的，通
 <ul>
 <li>pending（等待）: 初始状态，没有完成，也没有被拒绝</li>
 <li>resolved（完成）: 表示操作成功完成</li>
-<li>rejectde（拒绝）: 表示操作失败</li>
+<li>rejected（拒绝）: 表示操作失败</li>
 </ul>
 </li>
 </ul>
@@ -5956,7 +5956,7 @@ call 方法接受的参数是作为函数调用时的参数一一传递的，通
 <span class="line"><span style="color: #89DDFF">              </span><span style="color: #676E95; font-style: italic">// 不同点：此时是reject</span></span>
 <span class="line"><span style="color: #F07178">              </span><span style="color: #A6ACCD">result</span><span style="color: #F07178"> </span><span style="color: #89DDFF">instanceof</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span></span>
 <span class="line"><span style="color: #F07178">                </span><span style="color: #89DDFF">?</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">result</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">then</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">resolve</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">reject</span><span style="color: #F07178">)</span></span>
-<span class="line"><span style="color: #F07178">                </span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #82AAFF">resolve</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">                </span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #82AAFF">reject</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">result</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #F07178">            </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
 <span class="line"><span style="color: #F07178">          </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">catch</span><span style="color: #F07178"> (</span><span style="color: #A6ACCD">e</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #F07178">            </span><span style="color: #82AAFF">reject</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">e</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
