@@ -1,19 +1,11 @@
-const Obj = function () {
-  this.a = 12
+console.log('script start')
+
+async function test() {
+  console.log('before async')
+  await new Promise((resolve) => resolve(1))
+  console.log('after async')
 }
 
-Obj.prototype.c = 2
+test()
 
-const obj = new Obj()
-
-obj.b = 1
-
-function iterate(obj) {
-  const res = []
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) res.push(`${key}: ${obj[key]}`)
-  }
-  return res
-}
-
-console.log(obj.hasOwnProperty(c))
+console.log('script end')

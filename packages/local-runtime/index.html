@@ -25,4 +25,57 @@
     </div>
   </div>
 </body>
+<script>
+ const root = {
+  tag: 'DIV',
+  attrs: {
+    id: 'app'
+  },
+  children: [
+    {
+      tag: 'SPAN',
+      children: [{ tag: 'A', children: [] }]
+    },
+    {
+      tag: 'SPAN',
+      children: [
+        { tag: 'A', children: [123] },
+        { tag: 'A', children: [] }
+      ]
+    }
+  ]
+}
+
+// 真正的渲染函数
+function _render(vnode) {
+  // 数字类型转化为字符串
+  if(typeof vnode === 'number') {
+    vnode = String(vnode)
+  }
+  // 字符串生成文本节点
+  if(typeof vnode === 'string') {
+    return document.createTextNode(vnode)
+  }
+  // 生成元素节点
+  const el = document.createElement(vnode.tag)
+  // 处理属性
+  if(vnode.attrs) {
+
+    Object.keys(vnode.attrs).forEach((attr) => {
+      el.setAttribute(attr, vnode.attrs[attr])
+    })
+  }
+  // 处理子节点
+  vnode.children.forEach((child) => {
+    el.appendChild(_render(child))
+  })
+
+  return el
+}
+
+_render(root)
+
+console.log(_render(root))
+
+</script>
 </html>

@@ -56,7 +56,7 @@ function promiseUtils(promise) {
 ```js
 function sleep(time) {
   return new Promise((resolve) => {
-    setTimeout(resolve(123), time)
+    setTimeout(() => resolve(123), time)
   })
 }
 ```
