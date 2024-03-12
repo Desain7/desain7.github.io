@@ -4,7 +4,7 @@
         <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Mon, 11 Mar 2024 14:06:45 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Mar 2024 08:24:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,76 @@
             <link>https://desain7.top</link>
         </image>
         <copyright>Copyright (c) 2022-present, Desain</copyright>
+        <item>
+            <title><![CDATA[手写发布订阅模式]]></title>
+            <link>https://desain7.top/coding/js/手写发布订阅模式.html</link>
+            <guid>https://desain7.top/coding/js/手写发布订阅模式.html</guid>
+            <pubDate>Sun, 10 Mar 2024 16:00:00 GMT</pubDate>
+            <description><![CDATA[ 什么是发布订阅模式？
+发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。
+- 订阅者（Subscriber）把自己想订阅的事件注册（S]]></description>
+            <content:encoded><![CDATA[<h1 id="手写发布订阅模式" tabindex="-1">手写发布订阅模式 <a class="header-anchor" href="#手写发布订阅模式" aria-label="Permalink to &quot;手写发布订阅模式&quot;">&ZeroWidthSpace;</a></h1>
+<h2 id="什么是发布订阅模式" tabindex="-1">什么是发布订阅模式？ <a class="header-anchor" href="#什么是发布订阅模式" aria-label="Permalink to &quot;什么是发布订阅模式？&quot;">&ZeroWidthSpace;</a></h2>
+<p>发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。</p>
+<ul>
+<li><strong>订阅者</strong>（Subscriber）把自己想订阅的事件<strong>注册</strong>（Subscribe）到调度中心（Event Channel）;</li>
+<li>当<strong>发布者</strong>（Publisher）<strong>发布</strong>该事件（Publish Event）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。</li>
+</ul>
+<h2 id="发布订阅模式的实现" tabindex="-1">发布订阅模式的实现 <a class="header-anchor" href="#发布订阅模式的实现" aria-label="Permalink to &quot;发布订阅模式的实现&quot;">&ZeroWidthSpace;</a></h2>
+<ol>
+<li>首先创建一个调度中心的类及它的构造器</li>
+</ol>
+<p>使用对象作为事件容器，当同一个事件存在多个订阅者时，使用数组存放。</p>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">EventCenter</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 事件容器，用于存放事件数组</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{};</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="2">
+<li>添加订阅事件方法</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 订阅事件</span></span>
+<span class="line"><span style="color: #82AAFF">on</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> callback) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 创建数组容器</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">] </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> [</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">]</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 向数组容器中添加事件</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">push</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="3">
+<li>添加事件触发方法</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 触发事件</span></span>
+<span class="line"><span style="color: #82AAFF">emit</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">...</span><span style="color: #A6ACCD">args) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 判断是否存在事件</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 依次触发事件</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">forEach</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">cb</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">cb</span><span style="color: #F07178">(</span><span style="color: #89DDFF">...</span><span style="color: #A6ACCD">args</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><ol start="4">
+<li>添加取消订阅方法</li>
+</ol>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 取消订阅</span></span>
+<span class="line"><span style="color: #82AAFF">off</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> callback) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">name</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">filter</span><span style="color: #F07178">(</span><span style="color: #A6ACCD; font-style: italic">cb</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">cb</span><span style="color: #F07178"> </span><span style="color: #89DDFF">!==</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 不指定回调函数时，删除所有订阅</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">delete</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">name</span><span style="color: #F07178">]</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[怎么解决跨域问题？]]></title>
             <link>https://desain7.top/frontend/exp/怎么解决跨域问题？.html</link>
@@ -5683,6 +5753,7 @@ map 方法返回一个新数组，其中包含对原始数组的每个元素应�
 <span class="line"></span>
 <span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 遍历源对象的属性</span></span>
 <span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">for</span><span style="color: #F07178"> (</span><span style="color: #C792EA">let</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">key</span><span style="color: #F07178"> </span><span style="color: #89DDFF">in</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">obj</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 这里使用了 hasOwnProperty，是为了过滤掉原型链上的属性，保证只对对象本身的属性进行深拷贝</span></span>
 <span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #A6ACCD">obj</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">hasOwnProperty</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">key</span><span style="color: #F07178">)) </span><span style="color: #89DDFF">{</span></span>
 <span class="line"><span style="color: #89DDFF">      </span><span style="color: #676E95; font-style: italic">// 对于每个属性，递归调用深拷贝函数</span></span>
 <span class="line"><span style="color: #F07178">      </span><span style="color: #A6ACCD">copy</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">key</span><span style="color: #F07178">] </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #82AAFF">deepCopy</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">obj</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">key</span><span style="color: #F07178">])</span><span style="color: #89DDFF">;</span></span>
@@ -6369,76 +6440,6 @@ Promise 的异常处理需要通过 .catch() 方法，或在每个 .then() 方�
 <p>.then() 中的回调函数会被放入微任务队列中，等待 JavaScript 引擎空闲时执行</p>
 </div>
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[手写发布订阅模式]]></title>
-            <link>https://desain7.top/coding/js/手写发布订阅模式.html</link>
-            <guid>https://desain7.top/coding/js/手写发布订阅模式.html</guid>
-            <pubDate>Fri, 10 Mar 2023 16:00:00 GMT</pubDate>
-            <description><![CDATA[ 什么是发布订阅模式？
-发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。
-- 订阅者（Subscriber）把自己想订阅的事件注册（S]]></description>
-            <content:encoded><![CDATA[<h1 id="手写发布订阅模式" tabindex="-1">手写发布订阅模式 <a class="header-anchor" href="#手写发布订阅模式" aria-label="Permalink to &quot;手写发布订阅模式&quot;">&ZeroWidthSpace;</a></h1>
-<h2 id="什么是发布订阅模式" tabindex="-1">什么是发布订阅模式？ <a class="header-anchor" href="#什么是发布订阅模式" aria-label="Permalink to &quot;什么是发布订阅模式？&quot;">&ZeroWidthSpace;</a></h2>
-<p>发布-订阅模式是一种对象间一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将得到状态改变的通知。</p>
-<ul>
-<li><strong>订阅者</strong>（Subscriber）把自己想订阅的事件<strong>注册</strong>（Subscribe）到调度中心（Event Channel）;</li>
-<li>当<strong>发布者</strong>（Publisher）<strong>发布</strong>该事件（Publish Event）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。</li>
-</ul>
-<h2 id="发布订阅模式的实现" tabindex="-1">发布订阅模式的实现 <a class="header-anchor" href="#发布订阅模式的实现" aria-label="Permalink to &quot;发布订阅模式的实现&quot;">&ZeroWidthSpace;</a></h2>
-<ol>
-<li>首先创建一个调度中心的类及它的构造器</li>
-</ol>
-<p>使用对象作为事件容器，当同一个事件存在多个订阅者时，使用数组存放。</p>
-<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">EventCenter</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 事件容器，用于存放事件数组</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{};</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><ol start="2">
-<li>添加订阅事件方法</li>
-</ol>
-<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 订阅事件</span></span>
-<span class="line"><span style="color: #82AAFF">on</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> callback) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 创建数组容器</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">] </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> [</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">]</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 向数组容器中添加事件</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">push</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><ol start="3">
-<li>添加事件触发方法</li>
-</ol>
-<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 触发事件</span></span>
-<span class="line"><span style="color: #82AAFF">emit</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">...</span><span style="color: #A6ACCD">args) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 判断是否存在事件</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 依次触发事件</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">forEach</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">cb</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #82AAFF">cb</span><span style="color: #F07178">(</span><span style="color: #89DDFF">...</span><span style="color: #A6ACCD">args</span><span style="color: #F07178">)</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><ol start="4">
-<li>添加取消订阅方法</li>
-</ol>
-<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// 取消订阅</span></span>
-<span class="line"><span style="color: #82AAFF">off</span><span style="color: #A6ACCD">(type</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> callback) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #89DDFF">!this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">type</span><span style="color: #F07178">]) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">name</span><span style="color: #F07178">]</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">filter</span><span style="color: #F07178">(</span><span style="color: #A6ACCD; font-style: italic">cb</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">cb</span><span style="color: #F07178"> </span><span style="color: #89DDFF">!==</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">callback</span><span style="color: #F07178">)</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">else</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 不指定回调函数时，删除所有订阅</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">delete</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">events</span><span style="color: #F07178">[</span><span style="color: #A6ACCD">name</span><span style="color: #F07178">]</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div>]]></content:encoded>
         </item>
     </channel>
 </rss>
