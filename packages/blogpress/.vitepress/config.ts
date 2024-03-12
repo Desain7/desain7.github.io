@@ -189,24 +189,24 @@ export default defineConfig({
       //     { text: 'vue', link: '/bigWeb/vue/' }
       //   ]
       // },
-      {
-        text: '面试题',
-        items: [
-          { text: 'html', link: '/interview/html/' },
-          { text: 'javascript', link: '/interview/js/' },
-          { text: 'vue', link: '/interview/vue/' },
-          { text: '算法', link: '/interview/算法/' },
-          { text: '计算机网络', link: '/interview/计算机网络/' }
-        ]
-      },
-      {
-        text: '手撕代码',
-        items: [
-          { text: 'css', link: '/coding/css/' },
-          { text: 'javascript', link: '/coding/js/' },
-          { text: '算法与数据结构', link: '/coding/algorithm/' }
-        ]
-      }
+      // {
+      //   text: '面试题',
+      //   items: [
+      //     { text: 'html', link: '/interview/html/' },
+      //     { text: 'javascript', link: '/interview/js/' },
+      //     { text: 'vue', link: '/interview/vue/' },
+      //     { text: '算法', link: '/interview/算法/' },
+      //     { text: '计算机网络', link: '/interview/计算机网络/' }
+      //   ]
+      // },
+      // {
+      //   text: '手撕代码',
+      //   items: [
+      //     { text: 'css', link: '/coding/css/' },
+      //     { text: 'javascript', link: '/coding/js/' },
+      //     { text: '算法与数据结构', link: '/coding/algorithm/' }
+      //   ]
+      // }
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Desain7/desain7.github.io' }
