@@ -302,3 +302,44 @@ Promise.retry = function (fn, times, timeout, cache = null) {
 }
 
 ```
+
+
+## 并发控制器
+
+关键在于当达到最大并发数时，怎么保证前一个请求完成后能够立即从请求池中拿出一个请求并执行。
+
+这里在添加请求时，当请求达到最大并发数时，去 await 一个 Promise，并将这个 Promise 的 resolve 放到阻塞队列中，在任意请求执行完成后，都会进行判断并从阻塞队列中取出 resolve 并执行。
+
+这样就能够保证并发的某个请求执行完成后，后续阻塞队列中的请求能够正常按序执行了。
+
+```js
+class Scheduler {
+  constructor(max) {
+    // 最大可并发任务数
+    this.max = max
+    // 当前并发任务数
+    this.count = 0
+    // 阻塞的任务队列
+    this.queue = []
+  }
+
+  async add(fn) {
+    if (this.count >= this.max) {
+      // 若当前正在执行的任务，达到最大容量max
+      // 阻塞在此处，等待前面的任务执行完毕后将resolve弹出并执行
+      await new Promise((resolve) => this.queue.push(resolve))
+    }
+    // 当前并发任务数++
+    this.count++
+    // 使用await执行此函数
+    const res = await fn()
+    // 执行完毕，当前并发任务数--
+    this.count--
+    // 若队列中有值，将其resolve弹出，并执行
+    // 以便阻塞的任务，可以正常执行
+    this.queue.length && this.queue.shift()()
+    // 返回函数执行的结果
+    return res
+  }
+}
+```
