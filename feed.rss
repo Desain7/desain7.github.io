@@ -4,7 +4,7 @@
         <title>Desain &amp;&amp; Blog</title>
         <link>https://desain7.top</link>
         <description>要从那时起，不再动摇（前端相关技术分享）</description>
-        <lastBuildDate>Sat, 06 Apr 2024 09:03:56 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Jun 2024 00:51:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -1417,6 +1417,39 @@ const timer = setInterval(() =
 <span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
 <span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span></span>
 <span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span><span style="color: #F07178">)</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><h2 id="并发控制器" tabindex="-1">并发控制器 <a class="header-anchor" href="#并发控制器" aria-label="Permalink to &quot;并发控制器&quot;">&ZeroWidthSpace;</a></h2>
+<p>关键在于当达到最大并发数时，怎么保证前一个请求完成后能够立即从请求池中拿出一个请求并执行。</p>
+<p>这里在添加请求时，当请求达到最大并发数时，去 await 一个 Promise，并将这个 Promise 的 resolve 放到阻塞队列中，在任意请求执行完成后，都会进行判断并从阻塞队列中取出 resolve 并执行。</p>
+<p>这样就能够保证并发的某个请求执行完成后，后续阻塞队列中的请求能够正常按序执行了。</p>
+<div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Scheduler</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">max</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 最大可并发任务数</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">max</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">max</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 当前并发任务数</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">count</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #F78C6C">0</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 阻塞的任务队列</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">queue</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> []</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">async</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">add</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">fn</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #F07178"> (</span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">count</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&gt;=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">max</span><span style="color: #F07178">) </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">      </span><span style="color: #676E95; font-style: italic">// 若当前正在执行的任务，达到最大容量max</span></span>
+<span class="line"><span style="color: #89DDFF">      </span><span style="color: #676E95; font-style: italic">// 阻塞在此处，等待前面的任务执行完毕后将resolve弹出并执行</span></span>
+<span class="line"><span style="color: #F07178">      </span><span style="color: #89DDFF; font-style: italic">await</span><span style="color: #F07178"> </span><span style="color: #89DDFF">new</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Promise</span><span style="color: #F07178">(</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">resolve</span><span style="color: #89DDFF">)</span><span style="color: #F07178"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">queue</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">push</span><span style="color: #F07178">(</span><span style="color: #A6ACCD">resolve</span><span style="color: #F07178">))</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 当前并发任务数++</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">count</span><span style="color: #89DDFF">++</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 使用await执行此函数</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #C792EA">const</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">res</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">await</span><span style="color: #F07178"> </span><span style="color: #82AAFF">fn</span><span style="color: #F07178">()</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 执行完毕，当前并发任务数--</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">count</span><span style="color: #89DDFF">--</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 若队列中有值，将其resolve弹出，并执行</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 以便阻塞的任务，可以正常执行</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">queue</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">length</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&amp;&amp;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">this.</span><span style="color: #A6ACCD">queue</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">shift</span><span style="color: #F07178">()()</span></span>
+<span class="line"><span style="color: #89DDFF">    </span><span style="color: #676E95; font-style: italic">// 返回函数执行的结果</span></span>
+<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">res</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
 <span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
 </div>]]></content:encoded>
         </item>
