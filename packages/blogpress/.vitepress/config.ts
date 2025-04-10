@@ -2,7 +2,7 @@ import { getThemeConfig, defineConfig } from '@desain/theme/node'
 import themePkg from '@desain/theme/package.json'
 import type { Theme } from '@desain/theme'
 
-// const baseUrl = 'https://desain7.top'
+const baseUrl = 'https://desain7.top'
 const RSS: Theme.RSSOptions = {
   title: 'Desain && Blog',
   baseUrl,
